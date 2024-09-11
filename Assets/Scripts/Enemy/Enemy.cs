@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 		_agent.updateRotation = false;
 		_agent.updateUpAxis = false;
 		
-		Target = FindFirstObjectByType<PlayerMovement>().transform;
+		Target = FindFirstObjectByType<Player>().transform;
 	}
 
 	// Update is called once per frame

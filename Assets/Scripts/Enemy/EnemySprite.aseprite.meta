@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb8fcd8b4379e5f45b7f57aa9025bbac
+guid: c69f443993d3b804d8a0334cee957860
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: player
+  - name: EnemySprite
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 07b9b20ab51ec054384cdf57179b2beb
+    spriteID: 2d0c337e0e9f4c04cbd0fc35e29821d7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,20 +144,20 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1671627743
-    name: player
+    guid: -61168269
+    name: EnemySprite
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: player
+    - name: EnemySprite
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
-      spriteId: 07b9b20ab51ec054384cdf57179b2beb
+      spriteId: 2d0c337e0e9f4c04cbd0fc35e29821d7
     linkedCells: []
     parentIndex: -1
   platformSettings: []
