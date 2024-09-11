@@ -48,8 +48,11 @@ public class Jump : MonoBehaviour
         _velocity = _body.velocity;
 
         // handle various states of jumping and ability to jump
-        if (_onGround && _body.velocity.y == 0)
+        if (_onGround && _body.velocity.y <= 0)
         {
+            _velocity.y = 0;
+            _body.velocity = _velocity;
+            
             _jumpPhase = 0;
             _coyoteCounter = _coyoteTime;
             _isJumping = false;
@@ -94,10 +97,12 @@ public class Jump : MonoBehaviour
 
         _body.velocity = _velocity;
     }
+
     private void JumpAction()
     {
         if (_coyoteCounter > 0f || _jumpPhase < _maxAirJumps && _isJumping)
         {
+
             if (_isJumping)
             {
                 _jumpPhase += 1;
