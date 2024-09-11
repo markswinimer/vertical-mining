@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5466036110744559874}
   - component: {fileID: 7430151849947961879}
   - component: {fileID: 4179773489002435748}
-  - component: {fileID: 5412085886669856934}
   - component: {fileID: 3937780343167130847}
   - component: {fileID: 5353003179169931384}
   m_Layer: 0
@@ -102,29 +101,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec8d5923cad6164f87f1e2446667236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentState: 1
+  Name: 
   Target: {fileID: 0}
---- !u!195 &5412085886669856934
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4212942638611869809}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.53333336
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.0666667
-  m_BaseOffset: 0.53333336
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  PatrolPoints: []
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _maxHealth: 0
+  _currentHealth: 0
+  _defense: 0
+  _attackPower: 0
+  _patrolSpeed: 2
+  _chaseSpeed: 4
+  _jumpPower: 19.45
+  _chaseRange: 5
 --- !u!50 &3937780343167130847
 Rigidbody2D:
   serializedVersion: 4
@@ -140,8 +131,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 6c6233dba47a97148834170b78990918, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -151,7 +142,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5353003179169931384
 BoxCollider2D:
   m_ObjectHideFlags: 0
