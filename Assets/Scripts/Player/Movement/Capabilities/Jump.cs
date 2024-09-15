@@ -39,7 +39,7 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _desiredJump = _controller.input.RetrieveJumpInput();
+        _desiredJump = _controller.input.RetrieveJumpInput(this.gameObject);
     }
 
     private void FixedUpdate()
@@ -82,11 +82,11 @@ public class Jump : MonoBehaviour
             JumpAction();
         }
 
-        if (_controller.input.RetrieveJumpInput() && _body.velocity.y > 0)
+        if (_controller.input.RetrieveJumpInput(this.gameObject) && _body.velocity.y > 0)
         {
             _body.gravityScale = _upwardMovementMultiplier;
         }
-        else if (!_controller.input.RetrieveJumpInput() || _body.velocity.y < 0)
+        else if (!_controller.input.RetrieveJumpInput(this.gameObject) || _body.velocity.y < 0)
         {
             _body.gravityScale = _downwardMovementMultiplier;
         }

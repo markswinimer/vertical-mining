@@ -37,12 +37,12 @@ public class PlayerController : InputController
         _isJumping = false;
     }
 
-    public override bool RetrieveJumpInput()
+    public override bool RetrieveJumpInput(GameObject gameObject)
     {
         return _isJumping;
     }
 
-    public override float RetrieveMoveInput()
+    public override float RetrieveMoveInput(GameObject gameObject)
     {
         return _inputActions.Player.Move.ReadValue<Vector2>().x;
     }

@@ -7,7 +7,7 @@ public abstract class State : MonoBehaviour
 {
     public bool isComplete { get; protected set; }
     float startTime;
-    float time => Time.time - startTime;
+    public float time => Time.time - startTime;
     
     protected Core core;
     protected Rigidbody2D body => core.body;

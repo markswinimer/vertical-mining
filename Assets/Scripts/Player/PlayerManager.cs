@@ -35,7 +35,7 @@ public class PlayerManager : Core
 
     void CheckInput()
     {
-        xInput = input.RetrieveMoveInput();
+        xInput = input.RetrieveMoveInput(this.gameObject);
         Debug.Log("xInput: " + xInput);
     }
 
