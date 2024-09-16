@@ -10,6 +10,7 @@ public class PlayerController : InputController
 {
     private PlayerInputActions _inputActions;
     private bool _isJumping;
+    private bool _isAttacking;
 
     void OnEnable()
     {
@@ -17,6 +18,8 @@ public class PlayerController : InputController
         _inputActions.Player.Enable();
         _inputActions.Player.Jump.started += JumpStarted;
         _inputActions.Player.Jump.canceled += JumpCanceled;
+        _inputActions.Player.Attack.started += AttackStarted;
+        _inputActions.Player.Attack.canceled += AttackCanceled;
     }
 
     void OnDisable()
@@ -24,6 +27,8 @@ public class PlayerController : InputController
         _inputActions.Player.Disable();
         _inputActions.Player.Jump.started -= JumpStarted;
         _inputActions.Player.Jump.canceled -= JumpCanceled;
+        _inputActions.Player.Attack.started -= AttackStarted;
+        _inputActions.Player.Attack.canceled -= AttackCanceled;
         _inputActions = null;
     }
 
@@ -32,11 +37,25 @@ public class PlayerController : InputController
         _isJumping = true;
     }
 
+
     void JumpCanceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         _isJumping = false;
     }
 
+    void AttackStarted(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        _isAttacking = true;
+    }
+    void AttackCanceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        _isAttacking = false;
+    }
+
+    public override bool RetrieveAttackInput()
+    {
+        return _isAttacking;
+    }
     public override bool RetrieveJumpInput(GameObject gameObject)
     {
         return _isJumping;

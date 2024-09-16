@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     // singleton instance
     public static Player Instance { get; private set; }
    
+    public float AttackSpeed  = .5f;
+
     void Awake()
     {
         if (Instance == null)

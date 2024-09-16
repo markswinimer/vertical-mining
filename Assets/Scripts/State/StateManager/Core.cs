@@ -20,23 +20,11 @@ public abstract class Core : MonoBehaviour
     public void SetupInstances()
     {
         machine = new StateMachine();
-        Debug.Log("Setting up instances");
         // note: using GetComponents.. is costly, but here it only activates once.
         State[] allChildStates = GetComponentsInChildren<State>();
         foreach (State state in allChildStates)
         {
             state.SetCore(this);
         }
-    }
-
-    void OnDrawGizmos() 
-    {
-        #if UNITY_EDITOR
-        if (Application.isPlaying && state != null)
-        {
-            List<State> states = machine.GetActiveStateBranch();
-            UnityEditor.Handles.Label(transform.position, "Active States: " + string.Join(", ", states));
-        }
-        #endif
     }
 }

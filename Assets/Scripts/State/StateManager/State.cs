@@ -9,6 +9,7 @@ public abstract class State : MonoBehaviour
     float startTime;
     public float time => Time.time - startTime;
     
+    //I need to refactor core now that I have two kinds
     protected Core core;
     protected Rigidbody2D body => core.body;
     protected Animator animator => core.animator;

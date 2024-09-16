@@ -74,4 +74,14 @@ public class PlayerManager : Core
 
         transform.localScale = new Vector3(_direction, 1, 1);
     }
+    void OnDrawGizmos()
+    {
+        #if UNITY_EDITOR
+            if (Application.isPlaying && state != null)
+            {
+                List<State> states = machine.GetActiveStateBranch();
+                UnityEditor.Handles.Label(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), "Active States: " + string.Join(", ", states));
+            }
+        #endif
+    }
 }
