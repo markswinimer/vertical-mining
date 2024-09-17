@@ -54,4 +54,15 @@ public class NPC : Core
     {
         state.FixedDoBranch();
     }
+
+    void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        if (Application.isPlaying && state != null)
+        {
+            List<State> states = machine.GetActiveStateBranch();
+            UnityEditor.Handles.Label(new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), "Active States: " + string.Join(", ", states));
+        }
+#endif
+    }
 }

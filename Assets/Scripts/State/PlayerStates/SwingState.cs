@@ -5,13 +5,15 @@ using UnityEngine;
 public class SwingState : State
 {
     public AnimationClip clip;
-    private bool _startedSwinging = false;
     private float _swingTimer;
+    private float _playerAttackSpeed;
+    private Vector3Int _swingTargetPosition;
     public bool IsSwinging { get; private set; }
 
     public override void Enter()
     {
-        _swingTimer = Player.Instance.AttackSpeed;
+        _playerAttackSpeed = Player.Instance.AttackSpeed;
+        _swingTimer = _playerAttackSpeed;
 
         // Calculate the speed needed for the animation to match the desired duration
         float animationLength = clip.length;
@@ -26,18 +28,39 @@ public class SwingState : State
 
     public override void Do()
     {
-        if (!IsSwinging) {
-            isComplete = true;
-            // set the animator back to normal
-            return;
-        }
+        CheckForSwingTarget();
 
         // Reduce the swing timer
         _swingTimer -= Time.deltaTime;
+
         // If swing duration has passed, mark it as complete
         if (_swingTimer <= 0)
         {
-            IsSwinging = false;
+            if (_swingTargetPosition != null)
+            {
+                TryHitTarget();
+                _swingTimer = _playerAttackSpeed;
+            }
+        }
+    }
+
+    void CheckForSwingTarget()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3Int gridPosition = TileManager.Instance.GetTilemapWorldToCell(mousePosition);
+        Debug.Log(gridPosition);
+        if (TileManager.Instance.IsTileValid(gridPosition))
+        {
+            _swingTargetPosition = gridPosition;
+        }
+    }
+
+    void TryHitTarget()
+    {
+        Debug.Log("Trying to hit target");
+        if (_swingTargetPosition != null)
+        {
+            TileManager.Instance.DamageTile(_swingTargetPosition, 10f); // Example damage amount
         }
     }
 }
