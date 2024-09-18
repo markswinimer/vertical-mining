@@ -3,7 +3,7 @@ using UnityEngine;
 public class TilemapBlockBreaker : MonoBehaviour
 {
     private TileData _tileData;
-    private Sprite[] _breakingSprites;
+    public Sprite[] breakingSprites;
     private SpriteRenderer _spriteRenderer;
     private int _totalAnimationFrames;
 
@@ -13,7 +13,7 @@ public class TilemapBlockBreaker : MonoBehaviour
     void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _totalAnimationFrames = _breakingSprites.Length;
+        _totalAnimationFrames = breakingSprites.Length;
     }
     
     public void Instantiate(TileData tileData)
@@ -37,7 +37,7 @@ public class TilemapBlockBreaker : MonoBehaviour
 
         currentFrame = Mathf.Clamp(currentFrame, 0, _totalAnimationFrames - 1);
 
-        _spriteRenderer.sprite = _breakingSprites[currentFrame];
+        _spriteRenderer.sprite = breakingSprites[currentFrame];
 
         _timeSinceLastDamage = 0f;
     }
