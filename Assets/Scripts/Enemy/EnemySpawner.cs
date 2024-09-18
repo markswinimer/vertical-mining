@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -12,9 +13,11 @@ public class EnemySpawner : MonoBehaviour
 	private int _currentEnemyCount;
 	[SerializeField]
 	private int _spawnDelay;
+	private List<PatrolPoint> _patrolPoints; 
 	// Start is called before the first frame update
 	void Start()
 	{
+		_patrolPoints = GetComponentsInChildren<PatrolPoint>().ToList();
 		StartCoroutine(SpawnEnemies());
 	}
 
@@ -33,8 +36,14 @@ public class EnemySpawner : MonoBehaviour
 			{
 				yield return new WaitForEndOfFrame();
 			}
-			Instantiate(_enemyPrefab, transform);
+			_enemyPrefab.SetActive(false);
+			var enemy = Instantiate(_enemyPrefab, transform);
+			enemy.transform.position = transform.position;
+			var enemyComp = enemy.GetComponent<Enemy>();
+			enemyComp.PatrolState.anchor1 = _patrolPoints[0].transform;
+			enemyComp.PatrolState.anchor2 = _patrolPoints[1].transform;
 			_currentEnemyCount++;
+			enemy.SetActive(true);
 		}
 	}
 }

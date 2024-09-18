@@ -1,109 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Core 
 {
-	public EnemyState CurrentState;
-	public string Name;
-	public Transform Target;
-	public Transform[] PatrolPoints;
-	public LayerMask GroundLayer;
-	
-	[SerializeField]
-	private int _maxHealth;
-	[SerializeField]
-	private int _currentHealth;
-	[SerializeField]
-	private float _defense;
-	[SerializeField]
-	private int _attackPower;
-	[SerializeField]
-	private float _patrolSpeed;
-	[SerializeField]
-	private float _chaseSpeed;
-	[SerializeField]
-	private float _jumpPower;
-	[SerializeField]
-	private float _chaseRange;
-	private int _currentPatrolIndex;
-	private Rigidbody2D _rigidbody;
-	// Start is called before the first frame update
-	private void Start()
+	public PatrolState PatrolState;
+	public ChaseState ChaseState;
+
+	private Transform Player;
+
+	void Start()
 	{
-		Target = FindFirstObjectByType<Player>().transform;
-		_rigidbody = GetComponent<Rigidbody2D>();
+		Player = FindFirstObjectByType<Player>().transform;
+		SetupInstances();
+		Set(PatrolState);
 	}
 
-	// Update is called once per frame
-	private void Update()
+	void Update()
 	{
-		switch (CurrentState)
+		if (state.isComplete)
 		{
-			case EnemyState.Patrolling:
-				Patrol();
-				break;
-			case EnemyState.Chasing:
-				Chase();
-				break;
-			case EnemyState.Jumping:
-				Jump();
-				break;
+			if (state == ChaseState)
+			{
+				Set(PatrolState);
+			}
 		}
 
-		CheckForPlayer();
-	}
-
-	private void CheckForPlayer()
-	{
-		if (Vector2.Distance(transform.position, Target.position) < _chaseRange)
+		if (state == PatrolState)
 		{
-			CurrentState = EnemyState.Chasing;
+			ChaseState.CheckForTarget();
+			if (ChaseState.target != null)
+			{
+				Set(ChaseState, true);
+			}
 		}
-		else if (CurrentState == EnemyState.Chasing)
+
+		state.DoBranch();
+	}   
+
+	void FixedUpdate()
+	{
+		state.FixedDoBranch();
+	}
+
+	void OnDrawGizmos()
+	{
+#if UNITY_EDITOR
+		if (Application.isPlaying && state != null)
 		{
-			CurrentState = EnemyState.Patrolling;
+			List<State> states = machine.GetActiveStateBranch();
+			UnityEditor.Handles.Label(new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), "Active States: " + string.Join(", ", states));
 		}
-	}
-	
-	private void Patrol()
-	{
-		if (PatrolPoints.Length == 0) return;
-
-		var targetPoint = PatrolPoints[_currentPatrolIndex];
-		float step = _patrolSpeed * Time.deltaTime;
-		transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, step);
-
-		if (Vector2.Distance(transform.position, targetPoint.position) < 1f)
-		{
-			_currentPatrolIndex = (_currentPatrolIndex + 1) % PatrolPoints.Length;
-		}
-	}
-	
-	private void Chase()
-	{
-		float step = _chaseSpeed * Time.deltaTime;
-		transform.position = Vector2.MoveTowards(transform.position, Target.position, step);
-
-		// Check if a jump is needed
-		CheckForJump();
-	}
-	
-	void CheckForJump()
-	{
-		var groundInfo = Physics2D.Raycast(transform.position, Vector2.down, 2f, GroundLayer);
-
-		if (!groundInfo.collider)
-		{
-			// Jump if there's no ground ahead
-			CurrentState = EnemyState.Jumping;
-		}
-	}
-
-	private void Jump()
-	{
-		_rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpPower);
-		CurrentState = EnemyState.Chasing; // Resume chasing after jumping
+#endif
 	}
 }
