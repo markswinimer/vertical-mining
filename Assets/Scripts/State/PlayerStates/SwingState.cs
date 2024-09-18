@@ -48,7 +48,7 @@ public class SwingState : State
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int gridPosition = TileManager.Instance.GetTilemapWorldToCell(mousePosition);
-        Debug.Log(gridPosition);
+
         if (TileManager.Instance.IsTileValid(gridPosition))
         {
             _swingTargetPosition = gridPosition;
