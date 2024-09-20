@@ -7,12 +7,14 @@ public class SwingState : State
     public AnimationClip clip;
     private float _swingTimer;
     private float _playerAttackSpeed;
+    private float _playerAttackDamage;
     private Vector3Int _swingTargetPosition;
     public bool IsSwinging { get; private set; }
 
     public override void Enter()
     {
         _playerAttackSpeed = Player.Instance.AttackSpeed;
+        _playerAttackDamage = Player.Instance.AttackDamage;
         _swingTimer = _playerAttackSpeed;
 
         // Calculate the speed needed for the animation to match the desired duration
@@ -60,7 +62,7 @@ public class SwingState : State
         Debug.Log("Trying to hit target");
         if (_swingTargetPosition != null)
         {
-            TileManager.Instance.DamageTile(_swingTargetPosition, 10f); // Example damage amount
+            TileManager.Instance.DamageTile(_swingTargetPosition, _playerAttackDamage); // Example damage amount
         }
     }
 }
