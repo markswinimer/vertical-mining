@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // singleton instance
-    public static Player Instance { get; private set; }
+	// singleton instance
+	public static Player Instance { get; private set; }
    
-    public float AttackSpeed  = .5f;
+	public float AttackSpeed  = .5f;
+	
+	public int Health = 5;
 
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+	void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
+	
+	public void DealDamage(int damage)
+	{
+		Health -= damage;
+	}
 }

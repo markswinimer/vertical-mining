@@ -27,7 +27,7 @@ public class NavigateState : State
     public override void FixedDo()
     {
         Vector2 direction = (destination - (Vector2)core.transform.position).normalized;
-        body.velocity = new Vector2(direction.x * speed, body.velocity.y);
+		body.velocity = new Vector2(Mathf.Sign(direction.x) * speed, body.velocity.y);
     }
 
     void FaceDestination()
