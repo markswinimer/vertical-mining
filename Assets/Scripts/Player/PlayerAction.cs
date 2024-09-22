@@ -38,9 +38,16 @@ public class PlayerAction : Core
 
     void SelectState()
     {
-        if (mouseInput == true)
+        if (mouseInput == true || swingState.IsSwinging)
         {
-            machine.Set(swingState);
+            if (machine.state == swingState.isComplete)
+            {
+                machine.Set(swingState, true);
+            }
+            else
+            {
+                machine.Set(swingState);
+            }
         }
         else 
         {
