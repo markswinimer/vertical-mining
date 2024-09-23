@@ -8,11 +8,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Ground
-  - 
+  - Pickups
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Pickups
+    uniqueID: 3200208645
+    locked: 0
+  - name: Player
+    uniqueID: 773969271
+    locked: 0
+  - name: TilemapBehind
+    uniqueID: 2822658257
+    locked: 0
+  - name: TilemapInFront
+    uniqueID: 753467385
     locked: 0
