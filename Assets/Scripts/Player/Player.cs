@@ -6,9 +6,10 @@ public class Player : MonoBehaviour
 {
 	// singleton instance
 	public static Player Instance { get; private set; }
-   
+	
+	public Inventory Inventory;
 	public float AttackSpeed  = .5f;
-    public float AttackDamage = 20f;
+	public float AttackDamage = 20f;
 	public int Health = 5;
 
 	void Awake()
@@ -26,5 +27,9 @@ public class Player : MonoBehaviour
 	public void DealDamage(int damage)
 	{
 		Health -= damage;
+	}
+	
+	private void OnApplicationQuit() {
+		Inventory.Container.Clear();
 	}
 }

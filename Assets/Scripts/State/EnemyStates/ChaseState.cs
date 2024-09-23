@@ -45,7 +45,8 @@ public class ChaseState : State
 		// could code a ram attack here
 		else if (IsWithinReach(target.position))
 		{
-			Set(attackState);
+			Set(attackState, state != attackState);
+			body.velocity = new Vector2(0, body.velocity.y);
 		}
 		else if (!IsInVision(target.position))
 		{
