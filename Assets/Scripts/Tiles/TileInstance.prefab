@@ -250,3 +250,6 @@ MonoBehaviour:
   rockBreakSound: {fileID: 5506906165528833092}
   _timeSinceLastDamage: 0
   _tileBreakView: {fileID: 547593522340467833}
+  minDrops: 1
+  maxDrops: 4
+  dropPrefab: {fileID: 358562595636805164, guid: 26f24a15ca44d594da01aaf03cc3f7c2, type: 3}
