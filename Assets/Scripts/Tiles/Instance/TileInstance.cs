@@ -94,40 +94,16 @@ public class TileInstance : MonoBehaviour
             // Instantiate rockPrefab at the tile's position
             GameObject rock = Instantiate(dropPrefab, transform.position, Quaternion.identity);
 
-            // Get the Rigidbody2D component to apply force
             Rigidbody2D rockRb = rock.GetComponent<Rigidbody2D>();
 
-            // Apply a random force in a random direction
-            Vector2 forceDirection = Random.insideUnitCircle.normalized;  // Random direction
-            float forceMagnitude = Random.Range(forceMin, forceMax);       // Random force magnitude
+            // Apply a random force in an upward-biased direction
+            Vector2 forceDirection = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(0.5f, 1f)).normalized; // More upward bias
+            float forceMagnitude = Random.Range(forceMin, forceMax);
             rockRb.AddForce(forceDirection * forceMagnitude, ForceMode2D.Impulse);
 
             // Apply a random torque (rotation force)
             float torque = Random.Range(torqueMin, torqueMax);
             rockRb.AddTorque(torque);
-
-            // Start a coroutine to apply friction and stop the rock after 1 second
-            StartCoroutine(ApplyFrictionAndStop(rockRb));
         }
-    }
-
-    IEnumerator ApplyFrictionAndStop(Rigidbody2D rb)
-    {
-        float duration = 1f;  // Duration to stop the object
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            // Gradually reduce the velocity and angular velocity
-            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, elapsedTime / duration);
-            rb.angularVelocity = Mathf.Lerp(rb.angularVelocity, 0f, elapsedTime / duration);
-
-            elapsedTime += Time.deltaTime;
-            yield return null;  // Wait for the next frame
-        }
-
-        // Ensure the rock is completely stopped after 1 second
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0f;
     }
 }
