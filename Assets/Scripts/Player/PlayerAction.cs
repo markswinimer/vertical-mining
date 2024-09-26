@@ -16,6 +16,13 @@ public class PlayerAction : Core
 
     void Start()
     {
+        Animator localAnimator = GetComponent<Animator>();
+        
+        if (localAnimator != null)
+        {
+            localAnimator = animator;
+        }
+
         SetupInstances();
         machine.Set(idleActionState);
     }
