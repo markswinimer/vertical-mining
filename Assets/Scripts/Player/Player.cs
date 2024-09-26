@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDataPersistence
 {
 	// singleton instance
 	public static Player Instance { get; private set; }
@@ -28,8 +28,18 @@ public class Player : MonoBehaviour
 	{
 		Health -= damage;
 	}
-	
-	private void OnApplicationQuit() {
-		Inventory.Container.Clear();
+
+	public void LoadData(GameData data)
+	{
+		Inventory.Container = data.PlayerData.Inventory;
+		Health = data.PlayerData.Health;
+		transform.position = data.PlayerData.Position;
+	}
+
+	public void SaveData(GameData data)
+	{
+		data.PlayerData.Inventory = Inventory.Container;
+		data.PlayerData.Health = Health;
+		data.PlayerData.Position = transform.position;
 	}
 }
