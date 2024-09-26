@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 
-public class TileManager : MonoBehaviour
+public class TileManager : MonoBehaviour, IDataPersistence
 {
 	public static TileManager Instance { get; private set; }
 
@@ -29,17 +29,17 @@ public class TileManager : MonoBehaviour
 
 	void Start()
 	{
-		_tileDataDictionary = new Dictionary<Vector3Int, TileData>();
-		_tileInstanceDictionary = new Dictionary<Vector3Int, TileInstance>();
-		InitializeTileData();
 	}
 
 	void InitializeTileData()
 	{
+		Debug.Log("Init tiles");
 		foreach (Vector3Int position in _tilemap.cellBounds.allPositionsWithin)
 		{
+			Debug.Log("Init tiles post");
 			if (_tilemap.HasTile(position))
 			{
+				Debug.Log("Init tiles has pos");
 				TileData tileData = new TileData();
 				tileData.durability = 100f;
 				_tileDataDictionary[position] = tileData;
@@ -155,6 +155,8 @@ public class TileManager : MonoBehaviour
 
 	public void LoadData(GameData data)
 	{
+		_tileDataDictionary = new Dictionary<Vector3Int, TileData>();
+		_tileInstanceDictionary = new Dictionary<Vector3Int, TileInstance>();
 		if(data.TileData?.Count == 0)
 		{
 			InitializeTileData();
@@ -166,6 +168,18 @@ public class TileManager : MonoBehaviour
 			{
 				_tileDataDictionary.Add(tile.Position, tile.TileData);
 			}
+			DestroyDeadTiles();
+		}
+	}
+	
+	private void DestroyDeadTiles()
+	{
+		foreach (Vector3Int position in _tilemap.cellBounds.allPositionsWithin)
+		{
+			if (_tilemap.HasTile(position) && !_tileDataDictionary.ContainsKey(position))
+			{
+				_tilemap.SetTile(position, null);
+			}
 		}
 	}
 
@@ -176,6 +190,7 @@ public class TileManager : MonoBehaviour
 	}
 }
 
+[System.Serializable]
 public class TileData
 {
 	public float maxDurability = 100f;
