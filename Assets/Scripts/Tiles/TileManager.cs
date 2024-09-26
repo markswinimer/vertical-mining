@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 
-public class TileManager : MonoBehaviour, IDataPersistence
+public class TileManager : MonoBehaviour
 {
 	public static TileManager Instance { get; private set; }
 
@@ -31,6 +31,7 @@ public class TileManager : MonoBehaviour, IDataPersistence
 	{
 		_tileDataDictionary = new Dictionary<Vector3Int, TileData>();
 		_tileInstanceDictionary = new Dictionary<Vector3Int, TileInstance>();
+		InitializeTileData();
 	}
 
 	void InitializeTileData()

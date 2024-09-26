@@ -46,7 +46,7 @@ public class SwingState : State
     void Swing()
     {
         CheckForSwingTarget();
-
+        Debug.Log("Swinging");
         // Reduce the swing timer
         _swingTimer -= Time.deltaTime;
 
@@ -83,7 +83,7 @@ public class SwingState : State
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int gridPosition = TileManager.Instance.GetTilemapWorldToCell(mousePosition);
-
+        Debug.Log(gridPosition);
         if (TileManager.Instance.IsTileValid(gridPosition))
         {
             _swingTargetPosition = gridPosition;
