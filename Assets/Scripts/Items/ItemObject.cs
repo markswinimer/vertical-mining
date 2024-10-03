@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item Object", menuName = "Inventory System/Items/Default")]
+[System.Serializable]
 public class ItemObject : ScriptableObject
 {
 	public GameObject Prefab;

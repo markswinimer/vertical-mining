@@ -11,7 +11,8 @@ public class DataPersistenceManager : MonoBehaviour
 	[SerializeField] private bool _useEncryption;
 
 	[Header("Auto Saving Configuration")]
-	[SerializeField] private float autoSaveTimeSeconds = 60f;
+	[SerializeField] private float _autoSaveTimeSeconds = 60f;
+	[SerializeField] private bool _useSaveFile = true;
 
 	private GameData _gameData;
 	private List<IDataPersistence> _dataPersistenceObjects;
@@ -67,7 +68,7 @@ public class DataPersistenceManager : MonoBehaviour
 		_gameData = _dataHandler.Load();
 
 		// start a new game if the data is null and we're configured to initialize data for debugging purposes
-		if (_gameData == null) 
+		if (_gameData == null || !_useSaveFile) 
 		{
 			NewGame();
 		}
@@ -132,7 +133,7 @@ public class DataPersistenceManager : MonoBehaviour
 	{
 		while (true) 
 		{
-			yield return new WaitForSeconds(autoSaveTimeSeconds);
+			yield return new WaitForSeconds(_autoSaveTimeSeconds);
 			SaveGame();
 			Debug.Log("Auto Saved Game");
 		}

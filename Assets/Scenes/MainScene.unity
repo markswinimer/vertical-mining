@@ -64766,7 +64766,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fileName: TestSave
   _useEncryption: 0
-  autoSaveTimeSeconds: 60
+  _autoSaveTimeSeconds: 60
+  _useSaveFile: 1
 --- !u!1 &1412444228
 GameObject:
   m_ObjectHideFlags: 0
@@ -65189,7 +65190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5421683944585092530, guid: 964936132e2480c4191602955ab78bff, type: 3}
       propertyPath: orthographic size
-      value: 16.21875
+      value: 16.96875
       objectReference: {fileID: 0}
     - target: {fileID: 5421683944585092530, guid: 964936132e2480c4191602955ab78bff, type: 3}
       propertyPath: m_BackGroundColor.b
