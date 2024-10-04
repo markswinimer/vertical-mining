@@ -9,9 +9,9 @@ public class PlayerAction : MonoBehaviour
     public static PlayerAction instance;
     public Core activeTool;
 
-    void Start()
-    {
+    void Awake() {
         instance = this;
+        activeTool.EnterState();
     }
 
     public void SetActiveTool(Core tool)
@@ -22,8 +22,8 @@ public class PlayerAction : MonoBehaviour
         }
         else
         {
-            activeTool.isActive = false;
-            tool.isActive = true;
+            activeTool.ExitState();
+            tool.EnterState();
             activeTool = tool;
         }
     }

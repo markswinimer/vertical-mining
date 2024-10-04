@@ -15,13 +15,6 @@ public class GunState : Core
 
     void Start()
     {
-        Animator localAnimator = GetComponent<Animator>();
-
-        if (localAnimator != null)
-        {
-            localAnimator = animator;
-        }
-
         SetupInstances();
         machine.Set(idleActionState);
     }
@@ -79,6 +72,12 @@ public class GunState : Core
             _direction = 1f;
         }
         transform.localScale = new Vector3(_direction, 1, 1);
+    }
+    
+    public override void ExitState()
+    {
+        machine.Set(idleActionState);
+        isActive = false;
     }
 
     void OnDrawGizmos()

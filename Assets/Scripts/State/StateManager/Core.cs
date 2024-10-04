@@ -27,4 +27,11 @@ public abstract class Core : MonoBehaviour
             state.SetCore(this);
         }
     }
+
+    public virtual void EnterState() {
+        isActive = true;
+    }
+    public virtual void ExitState() {
+        isActive = false;
+    }
 }

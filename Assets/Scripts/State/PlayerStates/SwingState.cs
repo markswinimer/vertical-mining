@@ -31,7 +31,6 @@ public class SwingState : State
         float animationSpeed = clip.length / _swingTimer;
         // Set the animator speed to match the desired duration
         animator.speed = animationSpeed;
-        Debug.Log("Animation speed: " + animationSpeed);
         animator.Play(clip.name, 0, 0);
     }
 
@@ -46,7 +45,6 @@ public class SwingState : State
     void Swing()
     {
         CheckForSwingTarget();
-        Debug.Log("Swinging");
         // Reduce the swing timer
         _swingTimer -= Time.deltaTime;
 
@@ -83,7 +81,6 @@ public class SwingState : State
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int gridPosition = TileManager.Instance.GetTilemapWorldToCell(mousePosition);
-        Debug.Log(gridPosition);
         if (TileManager.Instance.IsTileValid(gridPosition))
         {
             _swingTargetPosition = gridPosition;
