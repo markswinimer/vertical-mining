@@ -7,7 +7,7 @@ public abstract class Core : MonoBehaviour
     public Rigidbody2D body;
     public Animator animator;
     public Ground ground;
-    
+    public bool isActive;
     public StateMachine machine;
 
     public State state => machine.state;

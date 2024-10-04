@@ -40,11 +40,7 @@ public class ToolSwitching : MonoBehaviour
         {
             if (i == selectedTool)
             {
-                tool.gameObject.SetActive(true);
-            }
-            else
-            {
-                tool.gameObject.SetActive(false);
+                PlayerAction.instance.SetActiveTool(tool.GetComponent<Core>());
             }
             i++;
         }
