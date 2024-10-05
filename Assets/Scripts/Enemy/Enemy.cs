@@ -10,6 +10,8 @@ public class Enemy : Core
 
 	private Transform Player;
 
+	private float _health = 100;
+
 	void Start()
 	{
 		Player = FindFirstObjectByType<Player>().transform;
@@ -37,7 +39,22 @@ public class Enemy : Core
 		}
 
 		state.DoBranch();
-	}   
+	}
+
+	public void TakeDamage(float damage)
+	{
+		_health -= damage;
+		if (_health <= 0)
+		{
+			HandleDeath();
+		}
+	}
+
+	void HandleDeath()
+	{	
+		// Instantiate(deathEffect, transform.position, Quaternion.identity);
+		Destroy(gameObject);
+	}
 
 	void FixedUpdate()
 	{

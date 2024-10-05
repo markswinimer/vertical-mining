@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GunState : Core
 {
-    public SwingState swingState;
+    public ShootState shootState;
     public IdleActionState idleActionState;
     public PlayerController input;
 
@@ -40,16 +40,15 @@ public class GunState : Core
 
     void SelectState()
     {
-        if (mouseInput == true || swingState.IsSwinging)
+        if (mouseInput == true)
         {
-            Debug.Log("Mouse Input is true --- GUN");
-            if (machine.state == swingState.isComplete)
+            if (machine.state == shootState.isComplete)
             {
-                machine.Set(swingState, true);
+                machine.Set(shootState, true);
             }
             else
             {
-                machine.Set(swingState);
+                machine.Set(shootState);
             }
         }
         else

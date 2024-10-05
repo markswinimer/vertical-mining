@@ -23,7 +23,6 @@ public class AttackAnimationState : State
 	private IEnumerator WaitForEndOfClip()
 	{
 		yield return new WaitForSeconds(clipTime);
-		Debug.Log("Clip should finish");
 		isComplete = true;
 	}
 }

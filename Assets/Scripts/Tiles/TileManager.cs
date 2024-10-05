@@ -33,13 +33,10 @@ public class TileManager : MonoBehaviour, IDataPersistence
 
 	void InitializeTileData()
 	{
-		Debug.Log("Init tiles");
 		foreach (Vector3Int position in _tilemap.cellBounds.allPositionsWithin)
 		{
-			Debug.Log("Init tiles post");
 			if (_tilemap.HasTile(position))
 			{
-				Debug.Log("Init tiles has pos");
 				TileData tileData = new TileData();
 				tileData.durability = 100f;
 				_tileDataDictionary[position] = tileData;
@@ -200,7 +197,6 @@ public class TileData
 	{
 		// adds or subtracts value from durability, and clamps it between 0 and maxDurability
 		durability = Mathf.Clamp(durability + value, 0, maxDurability);
-		Debug.Log("Updating durability: " + durability + " with value: " + value);
 
 		return durability;
 	}

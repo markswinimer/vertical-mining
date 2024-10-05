@@ -43,8 +43,6 @@ public class PickaxeState : Core
     {
         if (mouseInput == true || swingState.IsSwinging)
         {
-            Debug.Log("Mouse Input is true --- PICKAXE");
-
             if (machine.state == swingState.isComplete)
             {
                 machine.Set(swingState, true);

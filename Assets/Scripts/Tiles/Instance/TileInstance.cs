@@ -51,7 +51,6 @@ public class TileInstance : MonoBehaviour
 
     public void ProcessDestroyTile()
     {
-        Debug.Log("TileInstance.ProcessDestroyTile");
         PlayDestroyTileSound();
         _tileBreakView.ResetAnimation();
         SpawnDrops();
