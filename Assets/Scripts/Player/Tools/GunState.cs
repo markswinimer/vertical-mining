@@ -9,9 +9,20 @@ public class GunState : Core
     public ShootState shootState;
     public IdleActionState idleActionState;
     public PlayerController input;
+    public Vector2 mousePosition;
+    public Vector2 direction;
+
+    private float angle;
+    public GameObject firePoint;
+
+    public GameObject gunSprite;
 
     public bool mouseInput { get; private set; }
     private float _direction = 1f;
+
+    void Awake() {
+        HideGun();
+    }
 
     void Start()
     {
@@ -28,14 +39,26 @@ public class GunState : Core
         }
     }
 
-    void FixedUpdate()
-    {
-        FaceCusor();
-    }
-
     void CheckInput()
     {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseInput = input.RetrieveAttackInput();
+
+        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        direction = (mousePosition - (Vector2)transform.position).normalized;
+        gunSprite.transform.right = direction;
+
+        Vector3 localScale = new Vector3(1f, 1f,1f);
+
+        if (angle > 90 || angle < -90)
+        {
+            localScale.y = -1f;
+        }
+        else
+        {
+            localScale.y = 1f;
+        }
+        gunSprite.transform.localScale = localScale;
     }
 
     void SelectState()
@@ -53,30 +76,43 @@ public class GunState : Core
         }
         else
         {
-            animator.speed = 1f;
             machine.Set(idleActionState);
         }
         machine.state.Do();
     }
-
-    void FaceCusor()
+    
+    public override void EnterState()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (mousePos.x < transform.position.x)
-        {
-            _direction = -1f;
-        }
-        else
-        {
-            _direction = 1f;
-        }
-        transform.localScale = new Vector3(_direction, 1, 1);
+        isActive = true;
+        ShowGun();
     }
     
     public override void ExitState()
     {
         machine.Set(idleActionState);
         isActive = false;
+        HideGun();
+    }
+
+    // Hides the gun by disabling the SpriteRenderer
+    void HideGun()
+    {
+        SpriteRenderer sr = gunSprite.GetComponent<SpriteRenderer>();
+        if (gunSprite != null)
+        {
+            sr.enabled = false; // Hides the gun sprite
+        }
+    }
+
+
+    // Shows the gun by enabling the SpriteRenderer
+    void ShowGun()
+    {
+        SpriteRenderer sr = gunSprite.GetComponent<SpriteRenderer>();
+        if (gunSprite != null)
+        {
+            sr.enabled = true; // Shows the gun sprite
+        }
     }
 
     void OnDrawGizmos()

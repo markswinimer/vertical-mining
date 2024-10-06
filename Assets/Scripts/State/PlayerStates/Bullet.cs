@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     private float _damage = 40f;
     public Rigidbody2D rb;
+    public GameObject impactEffect;
 
     void Start()
     {
@@ -16,12 +17,16 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         Enemy enemy = other.GetComponent<Enemy>();
+
+        Instantiate(impactEffect, transform.position, transform.rotation);
+        
         if (enemy != null)
         {
             enemy.TakeDamage(_damage);
             Destroy(gameObject);
         }
-        else {
+        else 
+        {
             Destroy(gameObject);
         }
     }

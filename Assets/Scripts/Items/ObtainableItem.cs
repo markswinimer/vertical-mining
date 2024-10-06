@@ -8,6 +8,7 @@ public class ObtainableItem : MonoBehaviour
 	public int Amount = 1;
 	
 	private void OnTriggerEnter2D(Collider2D other) {
+		
 		if(other.gameObject.GetComponent<Player>() != null)
 		{
 			Player.Instance.Inventory.AddItem(Item, Amount);

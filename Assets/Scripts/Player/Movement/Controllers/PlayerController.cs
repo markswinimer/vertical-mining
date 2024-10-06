@@ -11,6 +11,7 @@ public class PlayerController : InputController
     private PlayerInputActions _inputActions;
     private bool _isJumping;
     private bool _isAttacking;
+    private bool _isSecondaryAction;
 
     void OnEnable()
     {
@@ -20,6 +21,8 @@ public class PlayerController : InputController
         _inputActions.Player.Jump.canceled += JumpCanceled;
         _inputActions.Player.Attack.started += AttackStarted;
         _inputActions.Player.Attack.canceled += AttackCanceled;
+        _inputActions.Player.SecondaryAction.started += SecondaryActionStarted;
+        _inputActions.Player.SecondaryAction.canceled += SecondaryActionCanceled;
     }
 
     void OnDisable()
@@ -29,6 +32,8 @@ public class PlayerController : InputController
         _inputActions.Player.Jump.canceled -= JumpCanceled;
         _inputActions.Player.Attack.started -= AttackStarted;
         _inputActions.Player.Attack.canceled -= AttackCanceled;
+        _inputActions.Player.SecondaryAction.started -= SecondaryActionStarted;
+        _inputActions.Player.SecondaryAction.canceled -= SecondaryActionCanceled;
         _inputActions = null;
     }
 
@@ -52,10 +57,25 @@ public class PlayerController : InputController
         _isAttacking = false;
     }
 
+    void SecondaryActionStarted(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        _isSecondaryAction = true;
+    }
+    void SecondaryActionCanceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        _isSecondaryAction = false;
+    }
+
     public override bool RetrieveAttackInput()
     {
         return _isAttacking;
     }
+
+    public override bool RetrieveSecondaryAction()
+    {
+        return _isSecondaryAction;
+    }
+    
     public override bool RetrieveJumpInput(GameObject gameObject)
     {
         return _isJumping;

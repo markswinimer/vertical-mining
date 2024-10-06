@@ -33,9 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ExampleAction",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "fac85392-9cd4-4c47-a8da-8911e5b74689",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondaryAction",
+                    "type": "Button",
+                    "id": "db015fdf-eb2b-45ff-9c1d-526931ff9396",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -248,7 +257,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "ExampleAction",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "958c5f27-6ff3-4f41-ab13-97c222a23713",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondaryAction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -19,7 +19,7 @@ public class TileInstance : MonoBehaviour
     private float torqueMin = -50f;
     private float torqueMax = 50f;
 
-    public GameObject dropPrefab;
+    public ItemObject dropPrefab;
 
     public void Instantiate(Vector3Int position)
     {
@@ -91,7 +91,7 @@ public class TileInstance : MonoBehaviour
         for (int i = 0; i < rockCount; i++)
         {
             // Instantiate rockPrefab at the tile's position
-            GameObject rock = Instantiate(dropPrefab, transform.position, Quaternion.identity);
+            GameObject rock = Instantiate(dropPrefab.Prefab, transform.position, Quaternion.identity);
 
             Rigidbody2D rockRb = rock.GetComponent<Rigidbody2D>();
 
