@@ -18,8 +18,9 @@ public class Bullet : MonoBehaviour
     {
         Enemy enemy = other.GetComponent<Enemy>();
 
-        Instantiate(impactEffect, transform.position, transform.rotation);
-        
+        GameObject impactEffectVFX = Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(impactEffectVFX, 2f);
+
         if (enemy != null)
         {
             enemy.TakeDamage(_damage);

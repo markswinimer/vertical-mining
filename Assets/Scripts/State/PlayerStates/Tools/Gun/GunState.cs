@@ -20,7 +20,8 @@ public class GunState : Core
     public bool mouseInput { get; private set; }
     private float _direction = 1f;
 
-    void Awake() {
+    void Awake()
+    {
         HideGun();
     }
 
@@ -48,7 +49,7 @@ public class GunState : Core
         direction = (mousePosition - (Vector2)transform.position).normalized;
         gunSprite.transform.right = direction;
 
-        Vector3 localScale = new Vector3(1f, 1f,1f);
+        Vector3 localScale = new Vector3(1f, 1f, 1f);
 
         if (angle > 90 || angle < -90)
         {
@@ -80,13 +81,13 @@ public class GunState : Core
         }
         machine.state.Do();
     }
-    
+
     public override void EnterState()
     {
         isActive = true;
         ShowGun();
     }
-    
+
     public override void ExitState()
     {
         machine.Set(idleActionState);

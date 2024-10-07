@@ -8,7 +8,7 @@ public class SuckState : State
 
     public Transform firePoint;
 
-    public GameObject vacuumEffect;
+    public GameObject whirlwindEffect;
     private GameObject _spawnedVacuumEffect;
     public VacuumEffect _vacuumEffect;
     public SuckPoint _suckPoint;
@@ -44,7 +44,7 @@ public class SuckState : State
         _isSucking = true;
         _vacuumEffect.StartVacuum();
         _suckPoint.StartVacuum();
-        _spawnedVacuumEffect = Instantiate(vacuumEffect, firePoint.position, firePoint.rotation, firePoint);
+        _spawnedVacuumEffect = Instantiate(whirlwindEffect, firePoint.position, firePoint.rotation, firePoint);
     }
 
     public override void Exit()

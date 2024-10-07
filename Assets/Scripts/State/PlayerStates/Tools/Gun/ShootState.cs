@@ -36,8 +36,9 @@ public class ShootState : State
     void Shoot()
     {
         _actionDelay = _playerAttackSpeed;
-        Instantiate(fireEffect, firePoint.position, firePoint.rotation);
+        GameObject fireEffectVFX = Instantiate(fireEffect, firePoint.position, firePoint.rotation);
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Destroy(fireEffectVFX, 2f);
     }
 
 
