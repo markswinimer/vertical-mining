@@ -18,6 +18,7 @@ public class DrillState : Core
     public GameObject firePoint;
 
     public GameObject toolSprite;
+    public GameObject sawSprite;
 
     public bool primaryMouseInput { get; private set; }
     public bool secondaryMouseInput { get; private set; }
@@ -108,10 +109,12 @@ public class DrillState : Core
     // Hides the gun by disabling the SpriteRenderer
     void HideTool()
     {
-        SpriteRenderer sr = toolSprite.GetComponent<SpriteRenderer>();
+        SpriteRenderer toolSR = toolSprite.GetComponent<SpriteRenderer>();
+        SpriteRenderer sawSR = sawSprite.GetComponent<SpriteRenderer>();
         if (toolSprite != null)
         {
-            sr.enabled = false; // Hides the gun sprite
+            toolSR.enabled = false; // Hides the gun sprite
+            sawSR.enabled = false; // Hides the gun sprite
         }
     }
 
@@ -119,10 +122,12 @@ public class DrillState : Core
     // Shows the gun by enabling the SpriteRenderer
     void ShowTool()
     {
-        SpriteRenderer sr = toolSprite.GetComponent<SpriteRenderer>();
+        SpriteRenderer toolSR = toolSprite.GetComponent<SpriteRenderer>();
+        SpriteRenderer sawSR = sawSprite.GetComponent<SpriteRenderer>();
         if (toolSprite != null)
         {
-            sr.enabled = true; // Shows the gun sprite
+            toolSR.enabled = true; // Shows the gun sprite
+            sawSR.enabled = true; // Shows the gun sprite
         }
     }
 

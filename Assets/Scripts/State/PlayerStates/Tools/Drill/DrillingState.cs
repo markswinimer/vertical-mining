@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DrillingState : State
 {
+    public AnimationClip clip;
 
     public Transform firePoint;
 
@@ -19,6 +20,12 @@ public class DrillingState : State
         _playerAttackSpeed = Player.Instance.AttackSpeed;
         _playerAttackDamage = Player.Instance.AttackDamage;
         _actionDelay = 0;
+
+        // Calculate the speed needed for the animation to match the desired duration
+        float animationSpeed = clip.length / _playerAttackSpeed;
+        // Set the animator speed to match the desired duration
+        animator.speed = animationSpeed;
+        animator.Play(clip.name, 0, 0);
     }
 
     public override void Do()
