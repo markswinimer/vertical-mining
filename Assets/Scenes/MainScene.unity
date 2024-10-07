@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4609139199525640613, guid: 0671acbbfdbba1440a309428884420ed, type: 3}
+      propertyPath: id
+      value: 03761310-c6d9-453d-93dc-81953b3d79a5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -516,6 +520,10 @@ PrefabInstance:
     - target: {fileID: 1689301213514608024, guid: 0671acbbfdbba1440a309428884420ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609139199525640613, guid: 0671acbbfdbba1440a309428884420ed, type: 3}
+      propertyPath: id
+      value: d6a8e0e8-c234-4377-abd3-a3f0e381673a
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64889,7 +64897,7 @@ MonoBehaviour:
   _fileName: TestSave
   _useEncryption: 0
   _autoSaveTimeSeconds: 60
-  _useSaveFile: 0
+  _useSaveFile: 1
 --- !u!1 &1412444228
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cable : MonoBehaviour
+public class Cable : MonoBehaviour, IDataPersistence
 {
 	public static Cable Instance { get; private set; }
 	
@@ -20,7 +20,6 @@ public class Cable : MonoBehaviour
 		{
 			Instance = this;
 		}
-		AddPosToCable(transform.position);
 	} 
 
 	private void Update()
@@ -88,4 +87,26 @@ public class Cable : MonoBehaviour
 	}
 
 	private void LastSegmentGoToPlayerPos() => cable.SetPosition(cable.positionCount - 1, player.position);
+
+	public void LoadData(GameData data)
+	{
+		var cableData = data.CableData;
+		if(cableData?.CablePositions?.Count == 0)
+		{
+			Debug.Log("Add Pos Load");
+			AddPosToCable(transform.position);
+		}
+		else
+		{
+			cablePositions = cableData.CablePositions;
+			LastAnchorIndex = cableData.LastAnchorIndex;
+			UpdateCablePositions();
+		}
+	}
+
+	public void SaveData(GameData data)
+	{
+		data.CableData.CablePositions = cablePositions;
+		data.CableData.LastAnchorIndex = LastAnchorIndex;
+	}
 }

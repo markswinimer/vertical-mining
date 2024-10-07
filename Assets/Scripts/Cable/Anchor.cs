@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Anchor : MonoBehaviour
+public class Anchor : MonoBehaviour, IDataPersistence
 {
 	public bool IsAttached;
 	public float AttachRange;
 	public int AnchorIndex;
+	public string id;
+
+	[ContextMenu("Generate guid for id")]
+	private void GenerateGuid() 
+	{
+		id = System.Guid.NewGuid().ToString();
+	}
 	// Start is called before the first frame update
 	void Awake()
 	{
@@ -47,5 +55,29 @@ public class Anchor : MonoBehaviour
 	{
 		Cable.Instance.RemoveAnchorFromCable(AnchorIndex);
 		IsAttached = false;
+	}
+
+	public void LoadData(GameData data)
+	{
+		var anchor = data.Anchors.FirstOrDefault(c => c.Id == id);
+		if(anchor != null)
+		{
+			IsAttached = anchor.IsAttached;
+			AnchorIndex = anchor.AnchorIndex;
+		}
+	}
+
+	public void SaveData(GameData data)
+	{
+		var anchor = data.Anchors.FirstOrDefault(c => c.Id == id);
+		if(anchor != null)
+		{
+			anchor.IsAttached = IsAttached;
+			anchor.AnchorIndex = AnchorIndex;
+		}
+		else
+		{
+			data.Anchors.Add(new AnchorData(id, IsAttached, AnchorIndex));
+		}
 	}
 }
