@@ -68,7 +68,10 @@ public class Cable : MonoBehaviour, IDataPersistence
 	
 	public int AddAnchorToCable(Vector3 position)
 	{
-		cablePositions.RemoveAt(cablePositions.Count - 1);
+		if(cablePositions.Count > 0)
+		{
+			cablePositions.RemoveAt(cablePositions.Count - 1);
+		}
 		cablePositions.Add(position);
 		cablePositions.Add(player.position); //Always the last pos must be the player
 		LastAnchorIndex = cablePositions.Count - 2;
@@ -91,16 +94,16 @@ public class Cable : MonoBehaviour, IDataPersistence
 	public void LoadData(GameData data)
 	{
 		var cableData = data.CableData;
-		if(cableData?.CablePositions?.Count == 0)
-		{
-			Debug.Log("Add Pos Load");
-			AddPosToCable(transform.position);
-		}
-		else
+		if(cableData?.CablePositions?.Count > 0)
 		{
 			cablePositions = cableData.CablePositions;
 			LastAnchorIndex = cableData.LastAnchorIndex;
 			UpdateCablePositions();
+		}
+		else
+		{
+			Debug.Log("Add Pos Load");
+			AddPosToCable(transform.position);
 		}
 	}
 
