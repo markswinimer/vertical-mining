@@ -11184,6 +11184,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3349572851830667319, guid: b3d9c69720143744e94eb45e96ae60d4, type: 3}
+      propertyPath: m_GravityScale
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3799022001594313111, guid: b3d9c69720143744e94eb45e96ae60d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.368475
@@ -80711,7 +80715,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4.07
+  m_GravityScale: 4
   m_Material: {fileID: 6200000, guid: 6c6233dba47a97148834170b78990918, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -80801,7 +80805,7 @@ MonoBehaviour:
   _fileName: TestSave
   _useEncryption: 0
   _autoSaveTimeSeconds: 60
-  _useSaveFile: 0
+  _useSaveFile: 1
 --- !u!1 &1411437196
 GameObject:
   m_ObjectHideFlags: 0
