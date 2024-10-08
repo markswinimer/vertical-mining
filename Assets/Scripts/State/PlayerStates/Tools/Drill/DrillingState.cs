@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DrillingState : State
 {
@@ -13,7 +14,19 @@ public class DrillingState : State
     private float _playerAttackSpeed;
     private float _playerAttackDamage;
 
+    private Vector3Int _targetPosition;
+    private bool _hasTarget;
+
+    public Transform drillPointA;
+    public Transform drillPointB;
+    public Transform drillTipTop;
+    public Transform drillTipBottom;
+
+    public Transform drillPoint;
+    public float drillRange = .5f;
+    public LayerMask tilemapLayer;
     public AudioSource pickaxeHitSound;
+    public Vector3 drillPosition;
 
     public override void Enter()
     {
@@ -30,21 +43,60 @@ public class DrillingState : State
 
     public override void Do()
     {
-        _actionDelay -= Time.deltaTime;
+        drillPosition = drillPoint.position;
+        _actionDelay += Time.deltaTime;
+        TriggerDrill();
+    }
 
-        if (_actionDelay <= _playerAttackSpeed * 0.2f)
+    void TriggerDrill()
+    {
+        CheckForTargets();
+
+        if (_hasTarget)
         {
-            Shoot();
+            HandleDrillEffect();
+
+            if (_actionDelay >= _playerAttackSpeed * 1.2f)
+            {
+                _actionDelay = 0;
+                TryHitTarget();
+            }
         }
     }
 
-    void Shoot()
+    private void HandleDrillEffect()
     {
-        _actionDelay = _playerAttackSpeed;
+        // Handle drill effect here
     }
 
+    void CheckForTargets()
+    {
+        _hasTarget = false; // Reset at the start
+        _targetPosition = default(Vector3Int); // Reset to default value
 
-    // pickaxeHitSound.Stop();
-    // pickaxeHitSound.time = Random.Range(0.3f, .4f);
-    // pickaxeHitSound.Play(0);
+        Vector3Int gridPositionTop = TileManager.Instance.GetTilemapWorldToCell(drillTipTop.position);
+        Vector3Int gridPositionBottom = TileManager.Instance.GetTilemapWorldToCell(drillTipTop.position);
+
+        if ( TileManager.Instance.IsTileValid(gridPositionTop) && TileManager.Instance.IsTileValid(gridPositionBottom) )
+        {
+            Vector3Int gridPositionA = TileManager.Instance.GetTilemapWorldToCell(drillTipTop.position);
+            if ( TileManager.Instance.IsTileValid(gridPositionTop) )
+            {
+                _targetPosition = gridPositionA;
+                _hasTarget = true;
+                return;
+            }
+        }
+    }
+
+    void TryHitTarget()
+    {
+        if (_hasTarget)
+        {
+            pickaxeHitSound.Stop();
+            pickaxeHitSound.time = Random.Range(0.3f, .4f);
+            pickaxeHitSound.Play(0);
+            TileManager.Instance.OnDamageTile(_targetPosition, _playerAttackDamage); // Example damage amount
+        }
+    }
 }

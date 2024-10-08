@@ -74,6 +74,7 @@ public class DrillState : Core
 
             if (machine.state == drillingState.isComplete)
             {
+                Debug.Log("Drilling COMPLETE");
                 machine.Set(drillingState, true);
             }
             else
