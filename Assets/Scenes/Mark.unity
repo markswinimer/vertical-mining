@@ -408,37 +408,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &513831958
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 513831959}
-  m_Layer: 3
-  m_Name: DrillTipTop
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &513831959
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513831958}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.297, y: 0.231, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 824956887}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534937224
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,73 +755,6 @@ Transform:
   - {fileID: 885949846}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &767640474
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 767640475}
-  m_Layer: 3
-  m_Name: DrillPointA
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &767640475
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767640474}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.168, y: 0.125, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 824956887}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &773083356
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 773083357}
-  m_Layer: 3
-  m_Name: DrillTipBottom
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &773083357
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 773083356}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31, y: -0.004, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 824956887}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &824956887 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8017619576748421542, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-  m_PrefabInstance: {fileID: 4952886682859983157}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &885949845
 GameObject:
   m_ObjectHideFlags: 0
@@ -64645,11 +64547,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb9c6ee90bda39643aeb25a9535cf4a9, type: 3}
---- !u!82 &1316556636 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5708650844647652750, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-  m_PrefabInstance: {fileID: 4952886682859983157}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1379652749
 GameObject:
   m_ObjectHideFlags: 0
@@ -64697,7 +64594,7 @@ MonoBehaviour:
   _fileName: TestSave
   _useEncryption: 0
   _autoSaveTimeSeconds: 60
-  _useSaveFile: 1
+  _useSaveFile: 0
 --- !u!1 &1412444228
 GameObject:
   m_ObjectHideFlags: 0
@@ -64879,37 +64776,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1584959918
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1584959919}
-  m_Layer: 3
-  m_Name: DrillPointB
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1584959919
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584959918}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.026, y: 0.125, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 824956887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1860547970
 PrefabInstance:
@@ -65151,38 +65017,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1903618613959307644, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      propertyPath: drillPoint
-      value: 
-      objectReference: {fileID: 767640475}
-    - target: {fileID: 1903618613959307644, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      propertyPath: drillRange
-      value: 0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1903618613959307644, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      propertyPath: drillPointA
-      value: 
-      objectReference: {fileID: 767640475}
-    - target: {fileID: 1903618613959307644, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      propertyPath: drillPointB
-      value: 
-      objectReference: {fileID: 1584959919}
-    - target: {fileID: 1903618613959307644, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      propertyPath: drillTipTop
-      value: 
-      objectReference: {fileID: 513831959}
-    - target: {fileID: 1903618613959307644, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      propertyPath: drillTipBottom
-      value: 
-      objectReference: {fileID: 773083357}
-    - target: {fileID: 1903618613959307644, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      propertyPath: pickaxeHitSound
-      value: 
-      objectReference: {fileID: 1316556636}
-    - target: {fileID: 1903618613959307644, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      propertyPath: tilemapLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 8354838390902097522, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.368475
@@ -65229,19 +65063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8017619576748421542, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 767640475}
-    - targetCorrespondingSourceObject: {fileID: 8017619576748421542, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1584959919}
-    - targetCorrespondingSourceObject: {fileID: 8017619576748421542, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 513831959}
-    - targetCorrespondingSourceObject: {fileID: 8017619576748421542, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 773083357}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
 --- !u!1660057539 &9223372036854775807

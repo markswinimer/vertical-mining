@@ -37,7 +37,7 @@ public class VacuumEffect : MonoBehaviour
             {
                 Vector2 vacuumCenter = suckPoint.GetComponent<BoxCollider2D>().bounds.center;
 
-                float halfHeight = suckPoint.GetComponent<BoxCollider2D>().bounds.size.y / 2f;
+                float halfHeight = suckPoint.GetComponent<BoxCollider2D>().bounds.size.y * 0.25f;
 
                 Vector2 direction = (vacuumCenter - (Vector2)other.transform.position).normalized;
 

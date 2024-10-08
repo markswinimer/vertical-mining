@@ -10,12 +10,18 @@ public class DrillingState : State
 
     public Transform firePoint;
 
+    public Move moveScript;
+
     private float _actionDelay;
     private float _playerAttackSpeed;
     private float _playerAttackDamage;
 
     private Vector3Int _targetPosition;
     private bool _hasTarget;
+
+    public Transform drillTransform;
+    private Vector3 _originalDrillPosition;
+    private float _shakeMagnitude = 0.025f;
 
     public Transform drillPointA;
     public Transform drillPointB;
@@ -34,6 +40,8 @@ public class DrillingState : State
         _playerAttackDamage = Player.Instance.AttackDamage;
         _actionDelay = 0;
 
+        _originalDrillPosition = drillTransform.localPosition;
+
         // Calculate the speed needed for the animation to match the desired duration
         float animationSpeed = clip.length / _playerAttackSpeed;
         // Set the animator speed to match the desired duration
@@ -50,6 +58,7 @@ public class DrillingState : State
 
     void TriggerDrill()
     {
+        bool hadTarget = _hasTarget;
         CheckForTargets();
 
         if (_hasTarget)
@@ -62,11 +71,23 @@ public class DrillingState : State
                 TryHitTarget();
             }
         }
+        else if (hadTarget && !_hasTarget)
+        {
+            moveScript.ResetMoveSpeed();
+        }
     }
 
     private void HandleDrillEffect()
     {
-        // Handle drill effect here
+        // Generate a random offset for shaking
+        float offsetX = Random.Range(-_shakeMagnitude, _shakeMagnitude);
+        float offsetY = Random.Range(-_shakeMagnitude, _shakeMagnitude);
+        Vector3 shakeOffset = new Vector3(offsetX, offsetY, 0);
+
+        // Apply the offset to the drill's local position
+        drillTransform.localPosition = _originalDrillPosition + shakeOffset;
+
+        moveScript.ModifyMoveSpeed(0.5f);
     }
 
     void CheckForTargets()
@@ -98,5 +119,10 @@ public class DrillingState : State
             pickaxeHitSound.Play(0);
             TileManager.Instance.OnDamageTile(_targetPosition, _playerAttackDamage); // Example damage amount
         }
+    }
+
+    public override void Exit()
+    {
+        drillTransform.localPosition = _originalDrillPosition;
     }
 }

@@ -452,7 +452,11 @@ Transform:
   m_LocalPosition: {x: 0.688, y: -0.122, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8259209384160868319}
+  - {fileID: 6434099081536766527}
+  - {fileID: 7178007025044863597}
+  - {fileID: 2699731462496994407}
   m_Father: {fileID: 1664860748573352467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2251262160152487073
@@ -594,6 +598,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedTool: 0
   input: {fileID: 11400000, guid: dc54f7c808283ad4ba19bfdb449894e8, type: 2}
+--- !u!1 &4790358102644569136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6434099081536766527}
+  m_Layer: 3
+  m_Name: DrillPointB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6434099081536766527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4790358102644569136}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.073, y: 0.105, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8017619576748421542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5040172065982029934
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +837,68 @@ MonoBehaviour:
   swingState: {fileID: 8686440322020474865}
   idleActionState: {fileID: 5368682686555247221}
   input: {fileID: 11400000, guid: dc54f7c808283ad4ba19bfdb449894e8, type: 2}
+--- !u!1 &5813516351838438842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8259209384160868319}
+  m_Layer: 3
+  m_Name: DrillPointA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8259209384160868319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813516351838438842}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.106, y: 0.1, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8017619576748421542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6285170013336261161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2699731462496994407}
+  m_Layer: 3
+  m_Name: DrillTipBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2699731462496994407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6285170013336261161}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.28, y: 0.006, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8017619576748421542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6332890580152321663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,8 +1215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76776a0fdcc0a76469b22087b79a3544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vacuumForce: 5
-  liftForce: 4
+  vacuumForce: 14
+  liftForce: 5
   suckPoint: {fileID: 6488068680337700039}
 --- !u!1 &7204062398048712074
 GameObject:
@@ -1167,6 +1264,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 5522812681064789136, guid: e6c177565e841534aa1993701f1f2b98, type: 3}
   maxXSpeed: 0.8
+--- !u!1 &7525119977494584118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7178007025044863597}
+  m_Layer: 3
+  m_Name: DrillTipTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7178007025044863597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7525119977494584118}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.293, y: 0.222, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8017619576748421542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7997522282702537207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656783974136858307, guid: 5c6b62058cc3568408f134ab1c324a02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.176
       objectReference: {fileID: 0}
     - target: {fileID: 8656783974136858307, guid: 5c6b62058cc3568408f134ab1c324a02, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1894,7 +2022,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 7306311048131245232, guid: 83ca3e78dbc736f46ab5567ec85ff4c4, type: 3}
   firePoint: {fileID: 3544260012024762430}
-  pickaxeHitSound: {fileID: 0}
+  drillTransform: {fileID: 1664860748573352467}
+  drillPointA: {fileID: 8259209384160868319}
+  drillPointB: {fileID: 6434099081536766527}
+  drillTipTop: {fileID: 7178007025044863597}
+  drillTipBottom: {fileID: 2699731462496994407}
+  drillPoint: {fileID: 8259209384160868319}
+  drillRange: 0.14
+  tilemapLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  pickaxeHitSound: {fileID: 5708650844647652750}
+  drillPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &3544260012024762430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2848411608240000758, guid: 5c6b62058cc3568408f134ab1c324a02, type: 3}

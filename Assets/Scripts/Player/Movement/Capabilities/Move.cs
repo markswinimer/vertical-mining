@@ -7,6 +7,8 @@ public class Move : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float _maxAcceleration = 35f;
     [SerializeField, Range(0f, 100f)] private float _maxAirAcceleration = 20f;
 
+    private float _activeMaxSpeed;
+    
     private Controller _controller;
     private Vector2 _direction, _desiredVelocity, _velocity;
     private Rigidbody2D _body;
@@ -22,10 +24,15 @@ public class Move : MonoBehaviour
         _controller = GetComponent<Controller>();
     }
 
+    private void Start()
+    {
+        _activeMaxSpeed = _maxSpeed;
+    }
+
     private void Update()
     {
         _direction.x = _controller.input.RetrieveMoveInput(this.gameObject);
-        _desiredVelocity = new Vector2(_direction.x, 0f) * Mathf.Max(_maxSpeed - _ground.Friction, 0f);
+        _desiredVelocity = new Vector2(_direction.x, 0f) * Mathf.Max(_activeMaxSpeed - _ground.Friction, 0f);
     }
 
     private void FixedUpdate()
@@ -38,5 +45,15 @@ public class Move : MonoBehaviour
         _velocity.x = Mathf.MoveTowards(_velocity.x, _desiredVelocity.x, _maxSpeedChange);
 
         _body.velocity = _velocity;
+    }
+
+    public void ModifyMoveSpeed(float speedAdjustment)
+    {
+        _activeMaxSpeed = _maxSpeed * speedAdjustment;
+    }
+
+    public void ResetMoveSpeed()
+    {
+        _activeMaxSpeed = _maxSpeed;
     }
 }
