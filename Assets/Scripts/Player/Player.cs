@@ -42,4 +42,14 @@ public class Player : MonoBehaviour, IDataPersistence
 		data.PlayerData.Health = Health;
 		data.PlayerData.Position = transform.position;
 	}
+	
+	public void PauseGravity()
+	{
+		GetComponent<Rigidbody2D>().gravityScale = 0;
+	}
+	
+	public void SetGravity()
+	{
+		GetComponent<Rigidbody2D>().gravityScale = 4;
+	}
 }

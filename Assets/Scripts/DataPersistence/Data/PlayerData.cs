@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-	public List<InventorySlot> Inventory;
+	public List<InventorySlot> Inventory = new List<InventorySlot>();
 	public Vector3 Position;
 	public int Health;
 }
