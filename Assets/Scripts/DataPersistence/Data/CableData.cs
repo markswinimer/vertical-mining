@@ -7,4 +7,6 @@ public class CableData
 {
 	public List<Vector3> CablePositions;
 	public int LastAnchorIndex;
+	public bool IsAttachedToPlayer;
+	public Vector3 CableEndPosition;
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CableRetractor : MonoBehaviour
 {
 	public float speed = 15;
+	public float AttachRange = 5;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -14,7 +15,7 @@ public class CableRetractor : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if(Input.GetKey(KeyCode.T))
+		if(Input.GetKey(KeyCode.T) && Cable.Instance.IsAttachedToPlayer)
 		{
 			Debug.Log("Pulllllll");
 			Player.Instance.PauseGravity();
@@ -25,6 +26,18 @@ public class CableRetractor : MonoBehaviour
 		else
 		{
 			Player.Instance.SetGravity();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.Q))
+		{
+			if(Cable.Instance.IsAttachedToPlayer)
+			{
+				Cable.Instance.DropCable();
+			}
+			else if(Vector2.Distance(Player.Instance.transform.position, Cable.Instance.CableEnd.transform.position) < AttachRange)
+			{
+				Cable.Instance.PickupCable();
+			}
 		}
 	}
 }

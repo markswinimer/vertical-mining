@@ -13,6 +13,8 @@ public class Cable : MonoBehaviour, IDataPersistence
 	public List<Vector3> cablePositions { get; set; } = new List<Vector3>();
 	public float ignoreDistance;
 	public int LastAnchorIndex;
+	public CableEnd CableEnd;
+	public bool IsAttachedToPlayer = true;
 
 	private void Awake()
 	{
@@ -25,10 +27,17 @@ public class Cable : MonoBehaviour, IDataPersistence
 	private void Update()
 	{
 		UpdateCablePositions();
-		LastSegmentGoToPlayerPos();
-
-		DetectCollisionEnter();
-		if (cablePositions.Count > 2) DetectCollisionExits();       
+		if(IsAttachedToPlayer)
+		{
+			LastSegmentGoToPlayerPos();
+			DetectCollisionEnter();
+			if (cablePositions.Count > 2) DetectCollisionExits();   
+		}
+		else
+		{
+			LastSegmentGoToCableEndPos();
+		}
+	
 		Debug.Log("Cable pos count = "+ cablePositions.Count); 
 	}
 
@@ -88,8 +97,21 @@ public class Cable : MonoBehaviour, IDataPersistence
 		}
 		cablePositions.Add(player.position);
 	}
+	
+	public void DropCable()
+	{
+		IsAttachedToPlayer = false;
+		CableEnd.AttachCableEnd();
+	}
+	
+	public void PickupCable()
+	{
+		IsAttachedToPlayer = true;
+		CableEnd.DetachCableEnd();
+	}
 
 	private void LastSegmentGoToPlayerPos() => cable.SetPosition(cable.positionCount - 1, player.position);
+	private void LastSegmentGoToCableEndPos() => cable.SetPosition(cable.positionCount - 1, CableEnd.transform.position);
 
 	public void LoadData(GameData data)
 	{
@@ -98,12 +120,21 @@ public class Cable : MonoBehaviour, IDataPersistence
 		{
 			cablePositions = cableData.CablePositions;
 			LastAnchorIndex = cableData.LastAnchorIndex;
+			IsAttachedToPlayer = cableData.IsAttachedToPlayer;
+			CableEnd.transform.position = cableData.CableEndPosition;
+			if(!IsAttachedToPlayer)
+			{
+				Debug.Log("IsAttached False, setup cable end");
+				CableEnd.IsAttached = true;
+				CableEnd.gameObject.SetActive(true);
+			}
 			UpdateCablePositions();
 		}
 		else
 		{
 			Debug.Log("Add Pos Load");
 			AddPosToCable(transform.position);
+			IsAttachedToPlayer = true;
 		}
 	}
 
@@ -111,5 +142,7 @@ public class Cable : MonoBehaviour, IDataPersistence
 	{
 		data.CableData.CablePositions = cablePositions;
 		data.CableData.LastAnchorIndex = LastAnchorIndex;
+		data.CableData.IsAttachedToPlayer = IsAttachedToPlayer;
+		data.CableData.CableEndPosition = CableEnd.transform.position;
 	}
 }

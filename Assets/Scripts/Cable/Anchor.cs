@@ -27,7 +27,7 @@ public class Anchor : MonoBehaviour, IDataPersistence
 	// Update is called once per frame
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.R))
+		if(Input.GetKeyDown(KeyCode.R) && Cable.Instance.IsAttachedToPlayer)
 		{
 			Debug.Log("Key Down R");
 			if(Vector2.Distance(Player.Instance.transform.position, transform.position) < AttachRange)
