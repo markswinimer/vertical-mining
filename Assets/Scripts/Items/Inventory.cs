@@ -25,15 +25,21 @@ public class Inventory : ScriptableObject
 				break;
 			}
 		}
-		
+	
 		//if still has more remaining, add new slots with rest
-		if(amount <= 0) return;
+		if (amount <= 0) return;
+
 		while(amount > 0)
 		{
 			var amountToAdd = Mathf.Min(item.MaxStackSize, amount);
 			Container.Add(new InventorySlot(item, amountToAdd));
 			amount -= amountToAdd;
 		}
-		//if container full, stop
+	}
+
+	public int GetItemCountByName(ItemType itemType)
+	{
+		int count = Container.Where(it => it.Item.ItemType == itemType).Sum(it => it.Amount);
+		return count;
 	}
 }

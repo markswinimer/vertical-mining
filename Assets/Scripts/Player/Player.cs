@@ -10,6 +10,8 @@ public class Player : MonoBehaviour, IDataPersistence
 	public Inventory Inventory;
 	public float AttackSpeed  = .5f;
 	public float AttackDamage = 20f;
+	public int MaxAmmo = 100;
+	public int Ammo;
 	public int Health = 5;
 
 	void Awake()
@@ -24,6 +26,11 @@ public class Player : MonoBehaviour, IDataPersistence
 		}
 	}
 	
+	public void Start()
+	{
+		Ammo = Inventory.GetItemCountByName(ItemType.Ore);
+	}
+
 	public void DealDamage(int damage)
 	{
 		Health -= damage;
@@ -33,6 +40,7 @@ public class Player : MonoBehaviour, IDataPersistence
 	{
 		Inventory.Container = data.PlayerData.Inventory;
 		Health = data.PlayerData.Health;
+		// Ammo = data.PlayerData.Ammo;
 		transform.position = data.PlayerData.Position;
 	}
 

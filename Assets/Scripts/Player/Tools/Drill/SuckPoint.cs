@@ -30,6 +30,7 @@ public class SuckPoint : MonoBehaviour
                 if (obtainableItem != null)
                 {
                     Debug.Log("getting" + obtainableItem);
+                    UIManager.Instance.UpdateAmmoUI(1);
 
                     Player.Instance.Inventory.AddItem(obtainableItem.Item, obtainableItem.Amount);
                     Destroy(other.gameObject);
