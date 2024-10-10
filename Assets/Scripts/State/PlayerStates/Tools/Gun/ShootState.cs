@@ -39,6 +39,7 @@ public class ShootState : State
         GameObject fireEffectVFX = Instantiate(fireEffect, firePoint.position, firePoint.rotation);
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Destroy(fireEffectVFX, 2f);
+        UIManager.Instance.UpdateAmmoUI(-1);
     }
 
 
