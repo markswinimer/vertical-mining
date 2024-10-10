@@ -25,11 +25,4 @@ public class UIManager : MonoBehaviour
         ammoBar.SetMaxAmmo(Player.Instance.MaxAmmo);
         ammoBar.SetAmmo(Player.Instance.Ammo);
     }
-
-    public void UpdateAmmoUI(int amount)
-    {
-        int newAmmo = Player.Instance.Ammo + amount;
-        ammoBar.SetAmmo(newAmmo);
-    }
-
 }

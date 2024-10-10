@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
 	public List<InventorySlot> Container = new List<InventorySlot>();
+	
+	public event Action<int> OnAmmoChanged;
 	
 	public void AddItem(ItemObject item, int amount)
 	{
@@ -20,7 +23,10 @@ public class Inventory : ScriptableObject
 			var amountToAdd = Mathf.Min(slotSizeRemaining, amount);
 			slot.Amount += amountToAdd;
 			amount -= amountToAdd;
-			if(amount <= 0)
+
+			PushInventoryUpdate(item.ItemType);
+
+			if (amount <= 0)
 			{
 				break;
 			}
@@ -36,10 +42,48 @@ public class Inventory : ScriptableObject
 			amount -= amountToAdd;
 		}
 	}
+	
+	public void RemoveItem(ItemObject item, int amount)
+	{
+		//get all stacks of specific item
+		var slots = Container.Where(it => it.Item.ItemType == item.ItemType);
+		//add amount to stacks, track amount to add remaining
+		foreach(var slot in slots)
+		{
+			var amountToRemove = Mathf.Min(slot.Amount, amount);
+			slot.Amount -= amountToRemove;
+			amount -= amountToRemove;
+
+			if (slot.Amount <= 0)
+			{
+				Container.Remove(Container.First(it => it.Item.ItemType == item.ItemType));
+				break;
+			}
+			if (amount <= 0)
+			{
+				break;
+			}
+		}
+		PushInventoryUpdate(item.ItemType);
+	}
 
 	public int GetItemCountByName(ItemType itemType)
 	{
-		int count = Container.Where(it => it.Item.ItemType == itemType).Sum(it => it.Amount);
-		return count;
+		var slots = Container.Where(it => it.Item.ItemType == itemType);
+		return slots.Sum(it => it.Amount);
+	}
+
+	private void PushInventoryUpdate(ItemType itemType)
+	{
+		switch (itemType)
+		{
+			case ItemType.Ore:
+				int amount = GetItemCountByName(ItemType.Ore);
+				Debug.Log("Ore amount: " + amount);
+				OnAmmoChanged?.Invoke(amount);
+				break;
+			default:
+				break;
+		}
 	}
 }

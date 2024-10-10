@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShootState : State
 {
+    public Inventory inventory;
 
     public Transform firePoint;
     public GameObject bulletPrefab;
@@ -13,6 +14,9 @@ public class ShootState : State
     private float _actionDelay;
     private float _playerAttackSpeed;
     private float _playerAttackDamage;
+
+    [SerializeField] private ItemObject _ammoType;
+    [SerializeField] private int _ammoCost  ;
 
     public AudioSource pickaxeHitSound;
 
@@ -29,7 +33,13 @@ public class ShootState : State
 
         if (_actionDelay <= _playerAttackSpeed * 0.2f)
         {
-            Shoot();
+            bool hasAmmo = CheckAmmo();
+
+            if (hasAmmo)
+            {
+                HandleAmmo();
+                Shoot();
+            }
         }
     }
 
@@ -39,10 +49,18 @@ public class ShootState : State
         GameObject fireEffectVFX = Instantiate(fireEffect, firePoint.position, firePoint.rotation);
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Destroy(fireEffectVFX, 2f);
-        UIManager.Instance.UpdateAmmoUI(-1);
     }
 
+    private bool CheckAmmo()
+    {
+        int ammo = inventory.GetItemCountByName(ItemType.Ore);
+        return ammo >= _ammoCost;
+    }
 
+    private void HandleAmmo()
+    {
+        inventory.RemoveItem(_ammoType, _ammoCost);
+    }
     // pickaxeHitSound.Stop();
     // pickaxeHitSound.time = Random.Range(0.3f, .4f);
     // pickaxeHitSound.Play(0);

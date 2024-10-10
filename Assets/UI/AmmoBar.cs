@@ -6,6 +6,21 @@ using UnityEngine.UI;
 public class AmmoBar : MonoBehaviour
 {
     public Slider slider;
+    public Inventory inventory;
+
+    private void OnEnable()
+    {
+        Debug.Log("AmmoBar enabled");
+        // Subscribe to the OnPlayerDamaged event
+        inventory.OnAmmoChanged += SetAmmo;
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("AmmoBar disabled");
+        // Unsubscribe from the event to prevent memory leaks
+        inventory.OnAmmoChanged -= SetAmmo;
+    }
 
     public void SetMaxAmmo(int ammo)
     {
