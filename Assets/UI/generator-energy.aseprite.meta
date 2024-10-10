@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8c39d79e8bae1574998ceeb541f1e2d8
+guid: d31929c94ed2fef439a67063033a8c65
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,7 +81,7 @@ ScriptedImporter:
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
-    addSortingGroup: 0
+    addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
     fileImportMode: 1
@@ -94,10 +94,10 @@ ScriptedImporter:
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
-    addSortingGroup: 0
+    addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638641636706116499
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: gun-ammo-bar
+  - name: generator-energy
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,9 +130,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 8
-      height: 32
-    spriteID: ac85d3a9ba4075b48b28eecb47a9206c
+      width: 96
+      height: 8
+    spriteID: 7cd3c282b074a184d886cf7d9fbfc911
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,60 +144,24 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1504093781
-    name: gun-ammo-bar
+    guid: -1746321834
+    name: generator-energy
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: gun-ammo-bar
+    - name: generator-energy
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
-        width: 8
-        height: 32
-      spriteId: ac85d3a9ba4075b48b28eecb47a9206c
+        width: 96
+        height: 8
+      spriteId: 7cd3c282b074a184d886cf7d9fbfc911
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 8, y: 32}
+  canvasSize: {x: 96, y: 8}

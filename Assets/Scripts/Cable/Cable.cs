@@ -1,10 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cable : MonoBehaviour, IDataPersistence
 {
 	public static Cable Instance { get; private set; }
-	
+	public event Action<bool> OnCableAttached;
+
 	public Transform player;
 
 	public LineRenderer cable;
@@ -16,13 +18,23 @@ public class Cable : MonoBehaviour, IDataPersistence
 	public CableEnd CableEnd;
 	public bool IsAttachedToPlayer = true;
 
-	private void Awake()
+
+	void Awake()
 	{
 		if (Instance == null)
 		{
 			Instance = this;
 		}
-	} 
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
+
+	private void Start()
+	{
+		OnCableAttached?.Invoke(IsAttachedToPlayer);
+	}
 
 	private void Update()
 	{
@@ -101,12 +113,14 @@ public class Cable : MonoBehaviour, IDataPersistence
 	public void DropCable()
 	{
 		IsAttachedToPlayer = false;
+		OnCableAttached?.Invoke(false);
 		CableEnd.AttachCableEnd();
 	}
 	
 	public void PickupCable()
 	{
 		IsAttachedToPlayer = true;
+		OnCableAttached?.Invoke(true);
 		CableEnd.DetachCableEnd();
 	}
 

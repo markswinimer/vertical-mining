@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,9 @@ public class Player : MonoBehaviour, IDataPersistence
 {
 	// singleton instance
 	public static Player Instance { get; private set; }
-	
+
+	public event Action<int> OnHealthChanged;
+
 	public Inventory Inventory;
 	public float AttackSpeed  = .5f;
 	public float AttackDamage = 20f;
@@ -29,11 +32,13 @@ public class Player : MonoBehaviour, IDataPersistence
 	public void Start()
 	{
 		Ammo = Inventory.GetItemCountByName(ItemType.Ore);
+		OnHealthChanged?.Invoke(Health);
 	}
 
 	public void DealDamage(int damage)
 	{
 		Health -= damage;
+		OnHealthChanged?.Invoke(Health);
 	}
 
 	public void LoadData(GameData data)
