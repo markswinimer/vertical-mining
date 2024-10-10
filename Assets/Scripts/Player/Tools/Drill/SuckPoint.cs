@@ -29,7 +29,6 @@ public class SuckPoint : MonoBehaviour
                 ObtainableItem obtainableItem = other.GetComponent<ObtainableItem>();
                 if (obtainableItem != null)
                 {
-                    Debug.Log("getting" + obtainableItem);
                     Player.Instance.Inventory.AddItem(obtainableItem.Item, obtainableItem.Amount);
                     Destroy(other.gameObject);
                 }
