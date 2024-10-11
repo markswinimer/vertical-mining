@@ -190,7 +190,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3214329593411913815, guid: 85aef6ee436fc5840bc1e68135271cc0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.368475
+      value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: 3214329593411913815, guid: 85aef6ee436fc5840bc1e68135271cc0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1967738191323912152, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
   m_PrefabInstance: {fileID: 1334092854}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2122939576}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b61068da20533d5418b1b22ca9b86571, type: 3}
@@ -65364,9 +65364,17 @@ PrefabInstance:
       propertyPath: moveScript
       value: 
       objectReference: {fileID: 410550872}
+    - target: {fileID: 5748207649064343633, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
+      propertyPath: cable
+      value: 
+      objectReference: {fileID: 1811735381}
+    - target: {fileID: 5748207649064343633, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
+      propertyPath: DistanceJoint
+      value: 
+      objectReference: {fileID: 2122939584}
     - target: {fileID: 8354838390902097522, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.368475
+      value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: 8354838390902097522, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -65411,7 +65419,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8823328064125193743, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2122939584}
   m_SourcePrefab: {fileID: 100100000, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
 --- !u!1 &1379652749
 GameObject:
@@ -65744,6 +65755,10 @@ PrefabInstance:
       propertyPath: CableEnd
       value: 
       objectReference: {fileID: 1117431270}
+    - target: {fileID: 2478652581424171259, guid: 406eb3d6169ec224c9c880e2300a3fe1, type: 3}
+      propertyPath: MaxLength
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4009247511902526455, guid: 406eb3d6169ec224c9c880e2300a3fe1, type: 3}
       propertyPath: m_Name
       value: LineCable
@@ -65932,7 +65947,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2897749003119409187, guid: 964936132e2480c4191602955ab78bff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.368475
+      value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: 2897749003119409187, guid: 964936132e2480c4191602955ab78bff, type: 3}
       propertyPath: m_LocalPosition.y
@@ -65972,7 +65987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5421683944585092530, guid: 964936132e2480c4191602955ab78bff, type: 3}
       propertyPath: orthographic size
-      value: 7.825564
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 5421683944585092530, guid: 964936132e2480c4191602955ab78bff, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -66489,6 +66504,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 2055705131}
   inventory: {fileID: 11400000, guid: 105f89532c15e5146aedd1119e3c9dcd, type: 2}
+--- !u!1 &2122939576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8823328064125193743, guid: c033faba91b01e246be5362a9e40b04e, type: 3}
+  m_PrefabInstance: {fileID: 1334092854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!232 &2122939584
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122939576}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 5.81, y: -2.1378574}
+  m_AutoConfigureDistance: 0
+  m_Distance: 50
+  m_MaxDistanceOnly: 1
 --- !u!1 &2128671456
 GameObject:
   m_ObjectHideFlags: 0

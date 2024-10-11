@@ -16,6 +16,8 @@ public class Player : MonoBehaviour, IDataPersistence
 	public int MaxAmmo = 100;
 	public int Ammo;
 	public int Health = 5;
+	public DistanceJoint2D DistanceJoint;
+	public Cable cable;
 
 	void Awake()
 	{
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour, IDataPersistence
 		{
 			Destroy(gameObject);
 		}
+		cable.OnCableAttached += UpdateDistanceJointOnCableSwitch;
 	}
 	
 	public void Start()
@@ -64,5 +67,18 @@ public class Player : MonoBehaviour, IDataPersistence
 	public void SetGravity()
 	{
 		GetComponent<Rigidbody2D>().gravityScale = 4;
+	}
+
+	private void UpdateDistanceJointOnCableSwitch(bool isAttached)
+	{
+		Debug.Log("Update distance joint = " + isAttached.ToString());
+		if (isAttached)
+		{
+			DistanceJoint.enabled = true;
+		}
+		else 
+		{
+			DistanceJoint.enabled = false;
+		}
 	}
 }

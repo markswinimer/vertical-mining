@@ -17,6 +17,8 @@ public class Cable : MonoBehaviour, IDataPersistence
 	public int LastAnchorIndex;
 	public CableEnd CableEnd;
 	public bool IsAttachedToPlayer = true;
+	public float MaxLength = 50;
+	public float CurrentLength;
 
 
 	void Awake()
@@ -49,6 +51,8 @@ public class Cable : MonoBehaviour, IDataPersistence
 		{
 			LastSegmentGoToCableEndPos();
 		}
+		UpdateCableLength();
+		UpdateDistanceJoint();
 	
 		Debug.Log("Cable pos count = "+ cablePositions.Count); 
 	}
@@ -122,6 +126,34 @@ public class Cable : MonoBehaviour, IDataPersistence
 		IsAttachedToPlayer = true;
 		OnCableAttached?.Invoke(true);
 		CableEnd.DetachCableEnd();
+	}
+	
+	public void UpdateCableLength()
+	{
+		var length = 0f;
+		
+		if (cable.positionCount < 2) return;
+
+		// Iterate through each pair of consecutive points
+		for (int i = 0; i < cable.positionCount - 1; i++)
+		{
+			// Get the positions of two consecutive points
+			Vector3 pointA = cable.GetPosition(i);
+			Vector3 pointB = cable.GetPosition(i + 1);
+
+			// Calculate the distance between these two points and add to the total length
+			length += Vector3.Distance(pointA, pointB);
+		}
+
+		CurrentLength = length;
+	}
+	
+	public void UpdateDistanceJoint()
+	{
+		Player.Instance.DistanceJoint.connectedAnchor = cable.GetPosition(cable.positionCount - 2);
+		var distance = Mathf.Round(MaxLength - CurrentLength + Vector3.Distance(cable.GetPosition(cablePositions.Count - 1), cable.GetPosition(cablePositions.Count - 2)));
+		Debug.Log("Disance = "+ distance);
+		Player.Instance.DistanceJoint.distance = distance;
 	}
 
 	private void LastSegmentGoToPlayerPos() => cable.SetPosition(cable.positionCount - 1, player.position);
