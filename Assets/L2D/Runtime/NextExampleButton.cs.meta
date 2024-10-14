@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b61e25076131ac0478609da4bc97756a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189846
+  packageName: L2D - 2D Lights, Shadows, and Hidden Objects
+  packageVersion: 1.0.1
+  assetPath: Assets/L2D/Runtime/NextExampleButton.cs
+  uploadId: 420958

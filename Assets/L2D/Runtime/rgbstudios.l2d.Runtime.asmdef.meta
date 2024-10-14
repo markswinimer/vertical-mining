@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5bb38775863444d4db346e2477b22da9
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189846
+  packageName: L2D - 2D Lights, Shadows, and Hidden Objects
+  packageVersion: 1.0.1
+  assetPath: Assets/L2D/Runtime/rgbstudios.l2d.Runtime.asmdef
+  uploadId: 420958

@@ -36,21 +36,24 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Lights
+  - ShadowCasters
+  - HiddenObjects
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 506859159
+    locked: 0
+  - name: TilemapBehind
+    uniqueID: 2822658257
     locked: 0
   - name: Pickups
     uniqueID: 3200208645
     locked: 0
   - name: Player
     uniqueID: 773969271
-    locked: 0
-  - name: TilemapBehind
-    uniqueID: 2822658257
     locked: 0
   - name: TilemapInFront
     uniqueID: 753467385

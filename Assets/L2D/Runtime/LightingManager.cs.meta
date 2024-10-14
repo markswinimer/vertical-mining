@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1f749308583f9c44197b26cde4201f29
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: ffc5eb093e4b9b04d89f25a4a2433b98, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189846
+  packageName: L2D - 2D Lights, Shadows, and Hidden Objects
+  packageVersion: 1.0.1
+  assetPath: Assets/L2D/Runtime/LightingManager.cs
+  uploadId: 420958

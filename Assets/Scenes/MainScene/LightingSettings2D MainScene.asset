@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7afbda1eb655274587cd9d39ca85cab, type: 3}
+  m_Name: LightingSettings2D MainScene
+  m_EditorClassIdentifier: 
+  ambientColor: {r: 0.09433961, g: 0.08499465, b: 0.08499465, a: 1}
+  sunPosition: {x: -0.1, y: 3.05}
+  doDayNightCycle: 0
+  ambientLightColorOverCycle:
+    serializedVersion: 2
+    key0: {r: 0.75, g: 0.55, b: 0.45, a: 0.43}
+    key1: {r: 1, g: 0.95, b: 0.55, a: 0.2}
+    key2: {r: 1, g: 0.95, b: 0.55, a: 0.2}
+    key3: {r: 0.55, g: 0.18, b: 0.1, a: 0.53}
+    key4: {r: 0, g: 0, b: 0, a: 1}
+    key5: {r: 0, g: 0, b: 0, a: 1}
+    key6: {r: 0.75, g: 0.55, b: 0.45, a: 0.43}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 5243
+    ctime2: 31457
+    ctime3: 35389
+    ctime4: 39321
+    ctime5: 61603
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 5243
+    atime2: 31457
+    atime3: 35389
+    atime4: 39321
+    atime5: 61603
+    atime6: 65535
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 7
+    m_NumAlphaKeys: 7
+  SunPositionOverDay:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MoonPositionOverNight:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.5
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  lengthOfDay: 60
+  lengthOfNight: 60
+  pitchBlackValue: 0.997
+  requiresLightClipping: 79
+  shadowFadeTime: 3
+  validate: 0
