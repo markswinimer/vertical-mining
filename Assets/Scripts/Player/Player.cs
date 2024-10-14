@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class Player : MonoBehaviour, IDataPersistence
 {
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour, IDataPersistence
 	public DistanceJoint2D DistanceJoint;
 	public Cable cable;
 
+	public GameObject lightBasic;
+	public GameObject lightCable;
+
 	void Awake()
 	{
 		if (Instance == null)
@@ -31,9 +35,21 @@ public class Player : MonoBehaviour, IDataPersistence
 		}
 		cable.OnCableAttached += UpdateDistanceJointOnCableSwitch;
 	}
-	
+
+	private void OnEnable()
+	{
+		Debug.Log("Cable attached event subscribed");
+		cable.OnCableAttached += ModifyLightSource;
+	}
+
+	private void OnDisable()
+	{
+		cable.OnCableAttached -= ModifyLightSource;
+	}
+
 	public void Start()
 	{
+		ModifyLightSource(cable.IsAttachedToPlayer);
 		Ammo = Inventory.GetItemCountByName(ItemType.Ore);
 		OnHealthChanged?.Invoke(Health);
 	}
@@ -69,6 +85,19 @@ public class Player : MonoBehaviour, IDataPersistence
 		GetComponent<Rigidbody2D>().gravityScale = 4;
 	}
 
+	public void ModifyLightSource(bool isAttached)
+	{
+		if (isAttached)
+		{
+			lightBasic.SetActive(false);
+			lightCable.SetActive(true);
+		}
+		else
+		{
+			lightBasic.SetActive(true);
+			lightCable.SetActive(false);
+		}
+	}
 	private void UpdateDistanceJointOnCableSwitch(bool isAttached)
 	{
 		Debug.Log("Update distance joint = " + isAttached.ToString());

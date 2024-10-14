@@ -20,7 +20,6 @@ public class Cable : MonoBehaviour, IDataPersistence
 	public float MaxLength = 50;
 	public float CurrentLength;
 
-
 	void Awake()
 	{
 		if (Instance == null)
