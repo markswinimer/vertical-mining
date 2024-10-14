@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f38cebbd435b2e845b7c2c8dc8467de7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189846
+  packageName: L2D - 2D Lights, Shadows, and Hidden Objects
+  packageVersion: 1.0.1
+  assetPath: Assets/L2D/Examples/Day and Night Cycle/LightingSettings2D Day and Night
+    Cycle.asset
+  uploadId: 420958

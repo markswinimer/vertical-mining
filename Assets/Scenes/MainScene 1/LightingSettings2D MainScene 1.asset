@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e7afbda1eb655274587cd9d39ca85cab, type: 3}
   m_Name: LightingSettings2D MainScene 1
-  m_EditorClassIdentifier: Runtime:L2D:LightingSettings2D
-  ambientColor: {r: 0, g: 0, b: 0, a: 0.95}
-  sunPosition: {x: 1, y: 1}
+  m_EditorClassIdentifier: 
+  ambientColor: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
+  sunPosition: {x: 0, y: 0}
   doDayNightCycle: 0
   ambientLightColorOverCycle:
     serializedVersion: 2
@@ -113,7 +113,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   lengthOfDay: 60
   lengthOfNight: 60
-  pitchBlackValue: 0.95
-  requiresLightClipping: 100
+  pitchBlackValue: 1
+  requiresLightClipping: 97
   shadowFadeTime: 3
   validate: 0

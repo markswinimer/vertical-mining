@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6441131652b9bf442aa7769e5e72b3ac
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: c82bb3e061a6f714581b228e0224b3e8, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189846
+  packageName: L2D - 2D Lights, Shadows, and Hidden Objects
+  packageVersion: 1.0.1
+  assetPath: Assets/L2D/Runtime/PointLight.cs
+  uploadId: 420958

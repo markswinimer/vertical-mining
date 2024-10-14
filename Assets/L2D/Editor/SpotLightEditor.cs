@@ -1,0 +1,168 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+
+namespace L2D
+{
+    [CustomEditor(typeof(SpotLight))]
+    public class SpotLightEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            SpotLight script = (SpotLight)target;
+
+
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                EditorGUILayout.LabelField("Light", EditorStyles.boldLabel);
+                EditorGUILayout.Space(5);
+
+                Color newcolor = EditorGUILayout.ColorField(new GUIContent("Light Color", "The color that this light will add to the scene."), script.color, true, false, true);
+                if (newcolor != script.color)
+                {
+                    Undo.RecordObject(script, "Change Light Color");
+                    script.color = newcolor;
+                    script.OnValidate();
+                }
+
+                float newlightIntensity = EditorGUILayout.Slider(new GUIContent("Light Intensity", "How much darkness is removed by this light."), script.lightIntensity, 0, 2);
+                if (newlightIntensity != script.lightIntensity)
+                {
+                    Undo.RecordObject(script, "Change Light Intensity");
+                    script.lightIntensity = newlightIntensity;
+                    script.OnValidate();
+                }
+
+                float newcolorIntensity = EditorGUILayout.Slider(new GUIContent("Color Intensity", "How much color is added by this light."), script.colorIntensity, 0, 2);
+                if (newcolorIntensity != script.colorIntensity)
+                {
+                    Undo.RecordObject(script, "Change Light Intensity");
+                    script.colorIntensity = newcolorIntensity;
+                    script.OnValidate();
+                }
+
+            }
+            EditorGUILayout.Space(5);
+
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                EditorGUILayout.LabelField("Shape", EditorStyles.boldLabel);
+                EditorGUILayout.Space(5);
+
+                float newradius = EditorGUILayout.FloatField(new GUIContent("Radius", "Directly controls the size of the light."), script.radius);
+                if (newradius != script.radius)
+                {
+                    Undo.RecordObject(script, "Change Radius");
+                    script.radius = newradius;
+                    script.OnValidate();
+                }
+
+                float newblendScale = EditorGUILayout.Slider(new GUIContent("Blend Scale", "Controls how the outside of the light blends."), script.blendScale, 0, 2);
+                if (newblendScale != script.blendScale)
+                {
+                    Undo.RecordObject(script, "Change Blend Scale");
+                    script.blendScale = newblendScale;
+                    script.OnValidate();
+                }
+
+                int newrayCount = (int)EditorGUILayout.Slider(new GUIContent("Raycast Count", "The higher this number the better the light will look but will be more expensive."), script.rayCount, 0, 1000);
+                if (newrayCount != script.rayCount)
+                {
+                    Undo.RecordObject(script, "Change Raycast Count");
+                    script.rayCount = newrayCount;
+                    script.OnValidate();
+                }
+
+                float newfov = EditorGUILayout.Slider(new GUIContent("Cone FOV", "How wide the cone of light is in degrees."), script.fov, 0, 360);
+                if (newfov != script.fov)
+                {
+                    Undo.RecordObject(script, "Change FOV");
+                    script.fov = newfov;
+                    script.OnValidate();
+                }
+
+                float newspotSteepness = EditorGUILayout.Slider(new GUIContent("Spot Steepness", "Controls how round the spot is at the end of the light."), script.spotSteepness, 0, 1);
+                if (newspotSteepness != script.spotSteepness)
+                {
+                    Undo.RecordObject(script, "Change Spot Steepness");
+                    script.spotSteepness = newspotSteepness;
+                    script.OnValidate();
+                }
+
+            }
+            EditorGUILayout.Space(5);
+
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                EditorGUILayout.LabelField("Rotation", EditorStyles.boldLabel);
+                EditorGUILayout.Space(5);
+
+
+                bool newfollowMouse = EditorGUILayout.Toggle(new GUIContent("Follow Mouse", "If true the center of the spotlights rotation will always point towards the mouse cursor."), script.followMouse);
+                if (newfollowMouse != script.followMouse)
+                {
+                    Undo.RecordObject(script, "Toggle Follow Mouse");
+                    script.followMouse = newfollowMouse;
+                    script.OnValidate();
+                }
+
+                float newaimDirection = EditorGUILayout.FloatField(new GUIContent("Aim Direction", "What direction the center of the spotlights rotation is in degrees."), script.aimDirection);
+                if (newaimDirection != script.aimDirection)
+                {
+                    Undo.RecordObject(script, "Change Aim Direction");
+                    script.aimDirection = newaimDirection;
+                    script.OnValidate();
+                }
+
+                float newrotationRange = EditorGUILayout.Slider(new GUIContent("Cone Rotation Range", "How far can the spotlight rotate before it changes direction."), script.rotationRange, 0, 360);
+                if (newrotationRange != script.rotationRange)
+                {
+                    Undo.RecordObject(script, "Change Rotation Range");
+                    script.rotationRange = newrotationRange;
+                    script.OnValidate();
+                }
+
+                float newrotationSpeed = EditorGUILayout.Slider(new GUIContent("Cone Rotation Speed", "How fast the spot light can complete one cycle."), script.rotationSpeed, 0, 2);
+                if (newrotationSpeed != script.rotationSpeed)
+                {
+                    Undo.RecordObject(script, "Change Rotation Speed");
+                    script.rotationSpeed = newrotationSpeed;
+                    script.OnValidate();
+                }
+            }
+            EditorGUILayout.Space(5);
+
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                EditorGUILayout.LabelField("Performance", EditorStyles.boldLabel);
+                EditorGUILayout.Space(5);
+
+                bool newdynamicLight = EditorGUILayout.Toggle(new GUIContent("Dynamic Light", "If true this light will shadow cast every frame."), script.dynamicLight);
+                if (newdynamicLight != script.dynamicLight)
+                {
+                    Undo.RecordObject(script, "Toggle Dynamic Light");
+                    script.dynamicLight = newdynamicLight;
+                    script.OnValidate();
+                }
+
+                bool newrunInEditor = EditorGUILayout.Toggle(new GUIContent("Show In Edit Mode", "If true this light will update and be displayed while in Edit Mode."), script.runInEditor);
+                if (newrunInEditor != script.runInEditor)
+                {
+                    Undo.RecordObject(script, "Toggle Show In Edit Mode");
+                    script.runInEditor = newrunInEditor;
+                    script.OnValidate();
+                }
+
+
+                if (!script.dynamicLight)
+                {
+                    if (GUILayout.Button(new GUIContent("Bake Light", "Will instantly cause the light to update and shadow cast.")))
+                    {
+                        script.generateLight = true;
+                    }
+                }
+            }
+        }
+    }
+}

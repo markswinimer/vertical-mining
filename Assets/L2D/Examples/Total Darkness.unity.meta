@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b0eaa49fd2295344bad0ad6fcca46c49
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189846
+  packageName: L2D - 2D Lights, Shadows, and Hidden Objects
+  packageVersion: 1.0.1
+  assetPath: Assets/L2D/Examples/Total Darkness.unity
+  uploadId: 420958

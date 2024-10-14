@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: b28e194e78958ca40ae2d5d9612bf4c6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - l2DLightMat: {fileID: 2100000, guid: e8876311d83fa344bb7a14d095a2a628, type: 2}
+  - combinedLightingMat: {fileID: 2100000, guid: 56a6cb8b3e0a76949b331286c381679a,
+      type: 2}
+  - lightingOverlayPrefab: {fileID: 8547783091015596707, guid: 10165a361e6c82845ae55fded35aded7,
+      type: 3}
+  - lightMap: {fileID: 8400000, guid: 6fc24a1e96d6aa4449cd1bfc04a876e6, type: 2}
+  - worldLightMap: {fileID: 8400000, guid: 80c91924e76e4ef4c9900afc43e4a0db, type: 2}
+  - colorLightMap: {fileID: 8400000, guid: 09c49c47c98ca754a84eac4da1a43d13, type: 2}
+  - forwardRendererInstance: {instanceID: 0}
+  - lightingRenderer: {instanceID: 0}
+  - l2DRenderPipelineAsset: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189846
+  packageName: L2D - 2D Lights, Shadows, and Hidden Objects
+  packageVersion: 1.0.1
+  assetPath: Assets/L2D/Runtime/L2DAssets.cs
+  uploadId: 420958
