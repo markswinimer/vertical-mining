@@ -7,6 +7,7 @@ public class Enemy : Core
 {
 	public PatrolState PatrolState;
 	public ChaseState ChaseState;
+	public InvestigateState InvestigateState;
 
 	private Transform Player;
 
@@ -23,13 +24,13 @@ public class Enemy : Core
 	{
 		if (state.isComplete)
 		{
-			if (state == ChaseState)
+			if (state == ChaseState || state == InvestigateState)
 			{
 				Set(PatrolState);
 			}
 		}
 
-		if (state == PatrolState)
+		if (state == PatrolState || state == InvestigateState)
 		{
 			ChaseState.CheckForTarget();
 			if (ChaseState.target != null)

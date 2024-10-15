@@ -244,6 +244,7 @@ Transform:
   - {fileID: 5509051473740638556}
   - {fileID: 896863761778164219}
   - {fileID: 7472736527419750041}
+  - {fileID: 7893440778486512687}
   m_Father: {fileID: 7883190503564997364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6865153047923004799
@@ -257,6 +258,7 @@ GameObject:
   - component: {fileID: 5509051473740638556}
   - component: {fileID: 9038834157193596666}
   - component: {fileID: 6881729656699613132}
+  - component: {fileID: 3536552734821404352}
   m_Layer: 0
   m_Name: Chase
   m_TagString: Untagged
@@ -310,9 +312,26 @@ MonoBehaviour:
   target: {fileID: 0}
   navigateState: {fileID: 9038834157193596666}
   idleState: {fileID: 5942869436952621626}
+  InvestigateState: {fileID: 1888725567497469590}
   attackState: {fileID: 7164309105538543128}
-  vision: 10
+  EnemyDetection: {fileID: 3536552734821404352}
+  vision: 1
   attackRange: 5
+--- !u!114 &3536552734821404352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865153047923004799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4053709395dc87e4891d69ade171e3e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  EnemyDetectionRange: 5
+  ShouldKeepChasing: 0
 --- !u!1 &7015416469127247337
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,8 +640,75 @@ MonoBehaviour:
   body: {fileID: 2194515530219550072}
   animator: {fileID: 6899824337780902346}
   ground: {fileID: 4314744786376574004}
+  isActive: 0
   PatrolState: {fileID: 5454952067691293299}
   ChaseState: {fileID: 6881729656699613132}
+  InvestigateState: {fileID: 1888725567497469590}
+--- !u!1 &7643285082551905423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7893440778486512687}
+  - component: {fileID: 1888725567497469590}
+  - component: {fileID: 3804293234223557871}
+  m_Layer: 0
+  m_Name: Investigate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7893440778486512687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7643285082551905423}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6337771822593004041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888725567497469590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7643285082551905423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3a7b024aeaf4f47bf0f86d3bb58b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  navigateState: {fileID: 3804293234223557871}
+  InvestigationRange: 5
+  idleState: {fileID: 5942869436952621626}
+--- !u!114 &3804293234223557871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7643285082551905423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0acd2f05ba62f40a68a81960fc0af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {x: 0, y: 0}
+  speed: 3
+  threshold: 0.1
+  animation: {fileID: 4532031239966311008}
 --- !u!1 &8020343317804545049
 GameObject:
   m_ObjectHideFlags: 0

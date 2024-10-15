@@ -7,7 +7,9 @@ public class ChaseState : State
 	public Transform target;
 	public NavigateState navigateState;
 	public IdleState idleState;
+	public InvestigateState InvestigateState;
 	public AttackState attackState;
+	public EnemyDetection EnemyDetection;
 	public float vision = 1;
 	public float attackRange = 1;
 
@@ -23,12 +25,13 @@ public class ChaseState : State
 
 	public override void Do()
 	{
-		if (state == navigateState || state == attackState)
+		if (state == navigateState || state == attackState || (state == InvestigateState && !state.isComplete))
 		{
 			ChaseTarget();
 		}
-		else
+		else if (state != InvestigateState || (state == InvestigateState && state.isComplete))
 		{
+			Debug.Log("END CHASE STATE");
 			EndPursuit();
 		}
 	}
@@ -48,12 +51,16 @@ public class ChaseState : State
 			Set(attackState, state != attackState);
 			body.velocity = new Vector2(0, body.velocity.y);
 		}
-		else if (!IsInVision(target.position))
+		else if (!IsInVision(target.position) && !EnemyDetection.ShouldStayInChase())
 		{
 			// if the target is out of vision, stop and idle
 			// which will end this state
-			Set(idleState, true);
-			body.velocity = new Vector2(0, body.velocity.y);
+			if(state != InvestigateState)
+			{
+				InvestigateState.target = target.position;
+			}
+			Set(InvestigateState);
+			Debug.Log("Enter inv from chase");
 		}
 		else
 		{
@@ -87,12 +94,12 @@ public class ChaseState : State
 
 	public void CheckForTarget()
 	{
-		if (IsInVision(Player.Instance.gameObject.transform.position))
+		if (EnemyDetection.ShouldChaseTarget())
 		{
-			target = Player.Instance.transform;
+			target = EnemyDetection.Target.transform;
 			return;
 		}
-
+	
 		target = null;
 	}
 }
