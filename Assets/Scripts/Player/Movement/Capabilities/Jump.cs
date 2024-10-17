@@ -46,7 +46,7 @@ public class Jump : MonoBehaviour
     {
         _onGround = _ground.OnGround;
         _velocity = _body.velocity;
-
+        
         // handle various states of jumping and ability to jump
         if (_onGround && _body.velocity.y <= 0)
         {

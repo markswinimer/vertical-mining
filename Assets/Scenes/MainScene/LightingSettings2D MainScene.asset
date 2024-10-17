@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7afbda1eb655274587cd9d39ca85cab, type: 3}
   m_Name: LightingSettings2D MainScene
   m_EditorClassIdentifier: 
-  ambientColor: {r: 0, g: 0, b: 0, a: 1}
+  ambientColor: {r: 0.01588643, g: 0.038573913, b: 0.066037714, a: 0.8156863}
   sunPosition: {x: 0, y: 0}
   doDayNightCycle: 0
   ambientLightColorOverCycle:

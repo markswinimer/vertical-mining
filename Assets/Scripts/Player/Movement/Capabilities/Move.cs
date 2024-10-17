@@ -31,6 +31,7 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("on ground = " + _ground.OnGround);
         _direction.x = _controller.input.RetrieveMoveInput(this.gameObject);
         _desiredVelocity = new Vector2(_direction.x, 0f) * Mathf.Max(_activeMaxSpeed - _ground.Friction, 0f);
     }

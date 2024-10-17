@@ -31,9 +31,10 @@ public class Ground : MonoBehaviour
         for (int i = 0; i < collision.contactCount; i++)
         {
             _normal = collision.GetContact(i).normal;
-            OnGround |= _normal.y >= 0.9f;
+            OnGround |= _normal.y > 0.99f;
         }
     }
+
 
     private void RetrieveFriction(Collision2D collision)
     {

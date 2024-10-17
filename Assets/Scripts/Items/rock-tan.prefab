@@ -21,6 +21,18 @@ PrefabInstance:
       value: Suckable
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 0b648816e0720984eaaaac5c069fac59, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 0b648816e0720984eaaaac5c069fac59, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 0b648816e0720984eaaaac5c069fac59, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 0b648816e0720984eaaaac5c069fac59, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.4
       objectReference: {fileID: 0}
