@@ -16,6 +16,7 @@ public class Move : MonoBehaviour
 
     private float _maxSpeedChange, _acceleration;
     private bool _onGround;
+    private bool _onWall;
 
     private void Awake()
     {
@@ -31,7 +32,6 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("on ground = " + _ground.OnGround);
         _direction.x = _controller.input.RetrieveMoveInput(this.gameObject);
         _desiredVelocity = new Vector2(_direction.x, 0f) * Mathf.Max(_activeMaxSpeed - _ground.Friction, 0f);
     }
@@ -39,9 +39,11 @@ public class Move : MonoBehaviour
     private void FixedUpdate()
     {
         _onGround = _ground.OnGround;
+        _onWall = _ground.OnWall;
         _velocity = _body.velocity;
-
-        _acceleration = _onGround ? _maxAcceleration : _maxAirAcceleration;
+        Debug.Log(_onGround + " = ground " + _onWall + " = wall");
+        // no friction on walls, can implement wall slide if you want
+        _acceleration = ( _onGround && !_onWall ) ? _maxAcceleration : _maxAirAcceleration;
         _maxSpeedChange = _acceleration * Time.deltaTime;
         _velocity.x = Mathf.MoveTowards(_velocity.x, _desiredVelocity.x, _maxSpeedChange);
 
