@@ -43,6 +43,8 @@ public class AttackState : State
 
 	public IEnumerator Attack()
 	{
+		var enemyDirectionLocal = Player.Instance.transform.TransformPoint(transform.position);
+		core.transform.localScale = new Vector3(Mathf.Sign(enemyDirectionLocal.x), 1, 1);
 		_onCooldown = true;
 		Set(animation, true);
 		yield return new WaitForSeconds(chargeTime);

@@ -245,6 +245,7 @@ Transform:
   - {fileID: 896863761778164219}
   - {fileID: 7472736527419750041}
   - {fileID: 7893440778486512687}
+  - {fileID: 2480970540216296322}
   m_Father: {fileID: 7883190503564997364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6865153047923004799
@@ -644,6 +645,7 @@ MonoBehaviour:
   PatrolState: {fileID: 5454952067691293299}
   ChaseState: {fileID: 6881729656699613132}
   InvestigateState: {fileID: 1888725567497469590}
+  StartingState: {fileID: 5454952067691293299}
 --- !u!1 &7643285082551905423
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +711,52 @@ MonoBehaviour:
   speed: 3
   threshold: 0.1
   animation: {fileID: 4532031239966311008}
+--- !u!1 &7900448515831833419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2480970540216296322}
+  - component: {fileID: 7006157580178222562}
+  m_Layer: 0
+  m_Name: Ceiling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2480970540216296322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7900448515831833419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6337771822593004041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7006157580178222562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7900448515831833419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd93c875a8ce01c4cbcfcc5be000099a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8860821107117528612, guid: f3ac809a385035c4b9c752087d65cc50, type: 3}
+  Rigidbody: {fileID: 0}
 --- !u!1 &8020343317804545049
 GameObject:
   m_ObjectHideFlags: 0

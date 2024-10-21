@@ -8,6 +8,7 @@ public class Enemy : Core
 	public PatrolState PatrolState;
 	public ChaseState ChaseState;
 	public InvestigateState InvestigateState;
+	public State StartingState;
 
 	private Transform Player;
 
@@ -17,7 +18,7 @@ public class Enemy : Core
 	{
 		Player = FindFirstObjectByType<Player>().transform;
 		SetupInstances();
-		Set(PatrolState);
+		Set(StartingState);
 	}
 
 	void Update()
