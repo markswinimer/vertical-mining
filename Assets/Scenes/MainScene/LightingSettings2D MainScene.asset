@@ -113,7 +113,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   lengthOfDay: 60
   lengthOfNight: 60
-  pitchBlackValue: 1
+  pitchBlackValue: 0
   requiresLightClipping: 79
   shadowFadeTime: 3
   validate: 0
