@@ -33,23 +33,23 @@ public class Player : MonoBehaviour, IDataPersistence
 		{
 			Destroy(gameObject);
 		}
-		cable.OnCableAttached += UpdateDistanceJointOnCableSwitch;
+		if(cable != null) cable.OnCableAttached += UpdateDistanceJointOnCableSwitch;
 	}
 
 	private void OnEnable()
 	{
 		Debug.Log("Cable attached event subscribed");
-		cable.OnCableAttached += ModifyLightSource;
+		if(cable != null) cable.OnCableAttached += ModifyLightSource;
 	}
 
 	private void OnDisable()
 	{
-		cable.OnCableAttached -= ModifyLightSource;
+		if(cable != null) cable.OnCableAttached -= ModifyLightSource;
 	}
 
 	public void Start()
 	{
-		ModifyLightSource(cable.IsAttachedToPlayer);
+		if(cable != null) ModifyLightSource(cable.IsAttachedToPlayer);
 		Ammo = Inventory.GetItemCountByName(ItemType.Ore);
 		OnHealthChanged?.Invoke(Health);
 	}

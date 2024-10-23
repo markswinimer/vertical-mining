@@ -35,12 +35,13 @@ public class Generator : MonoBehaviour
 	private void OnEnable()
 	{
 		Debug.Log("Cable attached event subscribed");
-		cable.OnCableAttached += PlaceEnergyDemand;
+		if(cable != null) cable.OnCableAttached += PlaceEnergyDemand;
+		
 	}
 
 	private void OnDisable()
 	{
-		cable.OnCableAttached -= PlaceEnergyDemand;
+		if(cable != null) cable.OnCableAttached -= PlaceEnergyDemand;
 	}
 
 	void Start()
