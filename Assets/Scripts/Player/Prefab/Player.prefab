@@ -308,9 +308,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7f6df238cd7e34bb8dbfc84e9aa5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
   firePoint: {fileID: 6563719675422274956}
   bulletPrefab: {fileID: 43703680135557808, guid: 6144cc2e8af3c7644895664f143e3ca9, type: 3}
   fireEffect: {fileID: 109206, guid: 5ffe6681839e9a44f9e7a5f4c89d252a, type: 3}
+  _ammoType: {fileID: 0}
+  _ammoCost: 0
   pickaxeHitSound: {fileID: 0}
 --- !u!1 &3055259985289374963
 GameObject:
@@ -1509,7 +1512,13 @@ MonoBehaviour:
   Inventory: {fileID: 11400000, guid: 105f89532c15e5146aedd1119e3c9dcd, type: 2}
   AttackSpeed: 0.3
   AttackDamage: 55
+  MaxAmmo: 100
+  Ammo: 0
   Health: 5
+  DistanceJoint: {fileID: 0}
+  cable: {fileID: 0}
+  lightBasic: {fileID: 0}
+  lightCable: {fileID: 0}
 --- !u!96 &2063576968550568352
 TrailRenderer:
   serializedVersion: 3
@@ -1663,6 +1672,7 @@ GameObject:
   - component: {fileID: 2763963127659298842}
   - component: {fileID: 316410727779242051}
   - component: {fileID: 6529191458828437403}
+  - component: {fileID: 6754547695673987164}
   m_Layer: 3
   m_Name: Gun
   m_TagString: Untagged
@@ -1732,6 +1742,22 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   firePoint: {fileID: 3348840848779450309}
   gunSprite: {fileID: 1317383828966597151}
+  NoiseMaker: {fileID: 6754547695673987164}
+  GunNoiseLevel: 0
+--- !u!114 &6754547695673987164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8867131848400667340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7debd45f2a5a5a649afd741cb495c9e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseLevel: 0
+  IsMakingNoise: 0
 --- !u!1 &9062715345689606200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,6 +1968,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2636664719074526949, guid: 5c6b62058cc3568408f134ab1c324a02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2630696199793562341}
+    - targetCorrespondingSourceObject: {fileID: 2636664719074526949, guid: 5c6b62058cc3568408f134ab1c324a02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7632081212992235977}
     - targetCorrespondingSourceObject: {fileID: 1573125437422967185, guid: 5c6b62058cc3568408f134ab1c324a02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7839332238953576871}
@@ -2022,6 +2051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 7306311048131245232, guid: 83ca3e78dbc736f46ab5567ec85ff4c4, type: 3}
   firePoint: {fileID: 3544260012024762430}
+  moveScript: {fileID: 0}
   drillTransform: {fileID: 1664860748573352467}
   drillPointA: {fileID: 8259209384160868319}
   drillPointB: {fileID: 6434099081536766527}
@@ -2069,6 +2099,23 @@ MonoBehaviour:
   firePoint: {fileID: 5895556808391186113}
   toolSprite: {fileID: 2530181022953047934}
   sawSprite: {fileID: 3522349078305870708}
+  NoiseMaker: {fileID: 7632081212992235977}
+  DrillNoiseLevel: 0
+  SuckNoiseLevel: 0
+--- !u!114 &7632081212992235977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3620747179898640429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7debd45f2a5a5a649afd741cb495c9e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseLevel: 0
+  IsMakingNoise: 0
 --- !u!1 &5895556808391186113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5150168924636039177, guid: 5c6b62058cc3568408f134ab1c324a02, type: 3}
