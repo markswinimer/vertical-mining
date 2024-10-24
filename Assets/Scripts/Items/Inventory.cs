@@ -86,4 +86,31 @@ public class Inventory : ScriptableObject
 				break;
 		}
 	}
+
+	public ItemObject TryRemoveAndGetItem(ItemType itemType)
+	{
+		var slots = Container.Where(it => it.Item.ItemType == itemType);
+		
+		if (slots.Count() == 0)
+		{
+			return null;
+		}
+		
+		var slot = slots.First();
+		
+		RemoveItem(slot.Item, 1);
+		
+		return slot.Item;
+	}
+
+	public int GetTotalInventoryCount()
+	{
+		int total = 0;
+		foreach (var slot in Container)
+		{
+			total += slot.Amount;
+		}
+		return total;
+		Debug.Log("Total inventory count: " + total);
+	}
 }

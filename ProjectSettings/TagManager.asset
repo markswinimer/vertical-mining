@@ -17,9 +17,9 @@ TagManager:
   - Pickups
   - Drill
   - GroundCheck
-  - 
-  - 
-  - 
+  - DrillWalls
+  - Platforms
+  - Room
   - 
   - 
   - 

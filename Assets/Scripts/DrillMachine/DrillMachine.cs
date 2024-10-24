@@ -23,7 +23,7 @@ public class DrillMachine : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     public void Start()
     {
         isPowered = true;
