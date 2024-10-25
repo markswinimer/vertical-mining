@@ -99,7 +99,7 @@ public class SwingState : State
             pickaxeHitSound.Stop();
             pickaxeHitSound.time = Random.Range(0.3f, .4f);
             pickaxeHitSound.Play(0);
-            TileManager.Instance.OnDamageTile(_swingTargetPosition, _playerAttackDamage); // Example damage amount
+            TileManager.Instance.OnDamageTile(_swingTargetPosition, _playerAttackDamage, DrillType.Player); // Example damage amount
         }
     }
 }

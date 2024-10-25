@@ -35,7 +35,7 @@ public class DrillingMachineState : State
             drillHitSound.Stop();
             drillHitSound.time = Random.Range(0.3f, .4f);
             drillHitSound.Play(0);
-            TileManager.Instance.OnDamageTile(position, _drillDamage); // Example damage amount
+            TileManager.Instance.OnDamageTile(position, _drillDamage, DrillType.DrillMachine); // Example damage amount
         }
     }
 

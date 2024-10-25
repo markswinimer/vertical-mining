@@ -117,7 +117,7 @@ public class DrillingState : State
             pickaxeHitSound.Stop();
             pickaxeHitSound.time = Random.Range(0.3f, .4f);
             pickaxeHitSound.Play(0);
-            TileManager.Instance.OnDamageTile(_targetPosition, _playerAttackDamage); // Example damage amount
+            TileManager.Instance.OnDamageTile(_targetPosition, _playerAttackDamage, DrillType.Player); // Example damage amount
         }
     }
 
