@@ -12,7 +12,7 @@ public class DrillRoomCheck : MonoBehaviour
     public bool playerInDrillRoom;
 
     private float _timeInsideDrillRoom = 0f;
-    private float _timeToTriggerSuck = 3f;
+    private float _timeToTriggerSuck = 1.5f;
 
     void Start()
     {

@@ -69,7 +69,7 @@ public class TileManager : MonoBehaviour, IDataPersistence
 		TileInstance tileInstance = Instantiate(this.tileInstance, centeredPosition, Quaternion.identity);
 		tileInstance.transform.position = new Vector3(centeredPosition.x, centeredPosition.y, -0.1f);
 		var tileBase = _tilemap.GetTile(position);
-		if(tileBase is OreTile oreTile)
+		if(tileBase is OreRuleTile oreTile)
 		{
 			tileInstance.dropPrefab = oreTile.OreData.OreToDrop;
 		}
@@ -198,7 +198,7 @@ public class TileManager : MonoBehaviour, IDataPersistence
 	
 	public TileData GetTileDataFromOre(TileBase tileBase)
 	{
-		if(tileBase is OreTile oreTile)
+		if(tileBase is OreRuleTile oreTile)
 		{
 			var oreData = oreTile.OreData;
 			return new TileData(oreData.MaxDurability, oreData.DrillType);

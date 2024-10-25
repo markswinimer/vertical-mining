@@ -10,19 +10,22 @@ public class SuckResources : MonoBehaviour
 
     private int _playerInventoryCount = 0;
 
-    private float _timeBetweenItemSucks = 0.5f;
+    private float _timeBetweenItemSucks;
+    private float _maxTimeBetweenItemSucks = 1f;
+    private float _minTimeBetweenItemSucks = 0.1f;
+    private float _itemSuckDecayRate = 0.3f;
 
     public float floatForce = 1f;  // The gentle force applied upward
     public float lifetime = 1.5f;  // How long the icon stays before being destroyed
     public float suctionForce = 5f;  // The force pulling the item towards the suction point
     public float suctionDelay = 0.5f;  // Delay before the suction starts
 
-
     void Start()
     {
         _playerInventory = Player.Instance.Inventory;
         _playerInDrillRoom = false;
         _playerInventoryCount = _playerInventory.GetTotalInventoryCount();
+        _timeBetweenItemSucks = 0f;
     }
 
     public void TurnSuckOn() 
@@ -45,7 +48,9 @@ public class SuckResources : MonoBehaviour
             
             if (item != null)
             {
-                _timeBetweenItemSucks = 0.5f;
+                _maxTimeBetweenItemSucks = Mathf.Max(_maxTimeBetweenItemSucks - _itemSuckDecayRate, _minTimeBetweenItemSucks);
+                _timeBetweenItemSucks = _maxTimeBetweenItemSucks;
+
                 PullItemFromInventory(item);
             }
         }

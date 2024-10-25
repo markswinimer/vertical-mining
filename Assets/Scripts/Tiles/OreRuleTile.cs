@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(fileName = "OreTile", menuName = "Tiles/OreTile", order = 1)]
-public class OreTile : Tile
+[CreateAssetMenu(fileName = "OreRuleTile", menuName = "Tiles/OreRuleTile", order = 2)]
+public class OreRuleTile : AdvancedRuleTile
 {
     public OreData OreData;
 }
