@@ -37,8 +37,8 @@ public class TileManager : MonoBehaviour, IDataPersistence
 		{
 			if (_tilemap.HasTile(position))
 			{
-				TileData tileData = new TileData();
-				tileData.durability = 100f;
+				var tileBase = _tilemap.GetTile(position);
+				TileData tileData = GetTileDataFromOre(tileBase);
 				_tileDataDictionary[position] = tileData;
 			}
 		}
@@ -68,13 +68,23 @@ public class TileManager : MonoBehaviour, IDataPersistence
 
 		TileInstance tileInstance = Instantiate(this.tileInstance, centeredPosition, Quaternion.identity);
 		tileInstance.transform.position = new Vector3(centeredPosition.x, centeredPosition.y, -0.1f);
+		var tileBase = _tilemap.GetTile(position);
+		if(tileBase is OreTile oreTile)
+		{
+			tileInstance.dropPrefab = oreTile.OreData.OreToDrop;
+		}
+		else
+		{
+			tileInstance.dropPrefab = null;
+		}
+		
 
 		tileInstance.Instantiate(position);
 
 		_tileInstanceDictionary[position] = tileInstance;
 	}
 
-	public void OnDamageTile(Vector3Int position, float damage)
+	public void OnDamageTile(Vector3Int position, float damage, DrillType drillSource)
 	{
 		TileData tileData = TryGetTileData(position);
 
@@ -90,7 +100,7 @@ public class TileManager : MonoBehaviour, IDataPersistence
 			if (tileInstance != null)
 			{
 				// update tiles durability, and return new durablity
-				float durability = tileData.UpdateDurability(-damage);
+				float durability = tileData.UpdateDurability(-damage, drillSource);
 
 				if (durability <= 0)
 				{
@@ -102,7 +112,7 @@ public class TileManager : MonoBehaviour, IDataPersistence
 				}
 				else
 				{
-					float damagePercentage = durability / tileData.maxDurability;
+					float damagePercentage = durability / tileData.MaxDurability;
 					tileInstance.ProcessDamageTile(damagePercentage);
 				}
 			}
@@ -116,8 +126,8 @@ public class TileManager : MonoBehaviour, IDataPersistence
 
 		if (tileData != null)
 		{
-			float maxDurability = tileData.maxDurability;
-			float durability = tileData.UpdateDurability(maxDurability / 3);
+			float maxDurability = tileData.MaxDurability;
+			float durability = tileData.UpdateDurability(maxDurability / 3, DrillType.Restore);
 
 			if (durability == maxDurability)
 			{
@@ -185,19 +195,41 @@ public class TileManager : MonoBehaviour, IDataPersistence
 		data.TileData.Clear();
 		data.TileData.AddRange(_tileDataDictionary.Select(t => new TileSaveData(t.Key, t.Value)));
 	}
+	
+	public TileData GetTileDataFromOre(TileBase tileBase)
+	{
+		if(tileBase is OreTile oreTile)
+		{
+			var oreData = oreTile.OreData;
+			return new TileData(oreData.MaxDurability, oreData.DrillType);
+		}
+		else
+		{
+			return new TileData(100, DrillType.Any);
+		}
+	}
 }
 
 [System.Serializable]
 public class TileData
 {
-	public float maxDurability = 100f;
-	public float durability;
-
-	public float UpdateDurability(float value)
+	public float MaxDurability = 100f;
+	public float Durability;
+	public DrillType DrillType;
+	
+	public TileData(float maxDurability, DrillType drillType)
 	{
-		// adds or subtracts value from durability, and clamps it between 0 and maxDurability
-		durability = Mathf.Clamp(durability + value, 0, maxDurability);
+		MaxDurability = maxDurability;
+		DrillType = drillType;
+		Durability = MaxDurability;
+	}
 
-		return durability;
+	public float UpdateDurability(float value, DrillType drillSource)
+	{
+		if(DrillType != DrillType.Any && drillSource != DrillType && drillSource != DrillType.Restore) return Durability;
+		// adds or subtracts value from durability, and clamps it between 0 and maxDurability
+		Durability = Mathf.Clamp(Durability + value, 0, MaxDurability);
+
+		return Durability;
 	}
 }
