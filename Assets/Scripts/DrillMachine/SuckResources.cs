@@ -1,18 +1,22 @@
 using UnityEngine;
+using System.Collections;
 
 public class SuckResources : MonoBehaviour
 {
     private bool _playerInDrillRoom;
     private Inventory _playerInventory;
 
-    private GameObject _suckPoint;
+    public GameObject _suckPoint;
 
     private int _playerInventoryCount = 0;
 
-    private float forceMin = 1f;
-    private float forceMax = 2f;
-    private float torqueMin = -20f;
-    private float torqueMax = 20f;
+    private float _timeBetweenItemSucks = 0.5f;
+
+    public float floatForce = 1f;  // The gentle force applied upward
+    public float lifetime = 1.5f;  // How long the icon stays before being destroyed
+    public float suctionForce = 5f;  // The force pulling the item towards the suction point
+    public float suctionDelay = 0.5f;  // Delay before the suction starts
+
 
     void Start()
     {
@@ -33,12 +37,15 @@ public class SuckResources : MonoBehaviour
 
     public void Update()
     {
-        if (_playerInDrillRoom)
-        {   
+        _timeBetweenItemSucks -= Time.deltaTime;
+        
+        if (_playerInDrillRoom && _timeBetweenItemSucks <= 0)
+        {
             ItemObject item = _playerInventory.TryRemoveAndGetItem(ItemType.Ore);
             
             if (item != null)
             {
+                _timeBetweenItemSucks = 0.5f;
                 PullItemFromInventory(item);
             }
         }
@@ -46,26 +53,42 @@ public class SuckResources : MonoBehaviour
 
     private void PullItemFromInventory(ItemObject item)
     {
-        // Define variables at the start of the function
-        Vector2 forceDirection = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.01f, 0.01f)).normalized;  // Smaller range for less movement
-        float forceMagnitude = Random.Range(0.0001f, 0.0005f);  // Tiny force for slight movement
-        float torque = Random.Range(-0.001f, 0.001f);  // Small torque for gentle rotation
-
         // Instantiate rockPrefab at the player's center position
         GameObject rock = Instantiate(item.Prefab, Player.Instance.transform.position, Quaternion.identity);
 
-        Rigidbody2D rockRb = rock.GetComponent<Rigidbody2D>();
+        // Get the Rigidbody2D component
+        Rigidbody2D rb = rock.GetComponent<Rigidbody2D>();
 
-        // Disable gravity to allow floating
-        rockRb.gravityScale = 0f;
+        if (rb != null)
+        {
+            // Disable gravity for this Rigidbody2D
+            rb.gravityScale = 0;
 
-        // Apply the pre-assigned force to the rock's Rigidbody2D
-        rockRb.AddForce(forceDirection * forceMagnitude, ForceMode2D.Impulse);
+            // Apply a small upward velocity to make it float
+            rb.velocity = new Vector2(0, floatForce);
 
-        // Apply the pre-assigned torque to the rock's Rigidbody2D
-        rockRb.AddTorque(torque);
+            // Start the suction effect after a delay
+            StartCoroutine(SuckUpAfterDelay(rb, _suckPoint.transform.position, suctionDelay));
+        }
 
-        // Clamp the velocity to limit how far the rock can move
-        rockRb.velocity = Vector2.ClampMagnitude(rockRb.velocity, 0.005f);  // Limit the movement speed to a few pixels per second
+        // Destroy the rock after a certain time
+        Destroy(rock, lifetime);
+    }
+
+    private IEnumerator SuckUpAfterDelay(Rigidbody2D rb, Vector3 suctionPoint, float delay)
+    {
+        // Wait for the delay before suction starts
+        yield return new WaitForSeconds(delay);
+
+        while (rb != null)
+        {
+            // Calculate direction to the suction point
+            Vector2 direction = (suctionPoint - rb.transform.position).normalized;
+
+            // Apply force towards the suction point
+            rb.AddForce(direction * suctionForce);
+
+            yield return null;
+        }
     }
 }

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: 0b648816e0720984eaaaac5c069fac59, type: 3}
       propertyPath: m_Name
-      value: rock-tan
+      value: rock-suck
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 0b648816e0720984eaaaac5c069fac59, type: 3}
       propertyPath: m_Layer
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: b9ea6d99430f44f458331298b2449d31, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
