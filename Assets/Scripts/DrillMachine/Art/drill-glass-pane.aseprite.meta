@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc4c007467bdb524b86dd3eae15bd848
+guid: bc621103103d88b4fa0eddcc64ed3066
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638651141240662690
+  platformSettingsDirtyTick: 638655472322222478
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,47 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: drill_Frame_0
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 200
-      y: 288
-      width: 188
-      height: 275
-    spriteID: ad571c530de18a34983d795b51daf6ab
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 200, y: 288}
-  - name: drill_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 200
-      y: 571
-      width: 188
-      height: 275
-    spriteID: b02236aba886d9246b835c79dbe2aa47
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 200, y: 571}
-  - name: drill_Frame_2
+  - name: drill-glass-pane
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -170,9 +130,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 188
-      height: 276
-    spriteID: df3be8c716b0f0a41a45cdc628ffaa3c
+      width: 52
+      height: 95
+    spriteID: 2bc6ed3c7060f414896e944b90fac2a6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,151 +141,23 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: drill_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 288
-      width: 188
-      height: 276
-    spriteID: 204247cf47ea0084d8022353a73d6a9d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 288}
-  - name: drill_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 396
-      y: 4
-      width: 188
-      height: 275
-    spriteID: da154757ef5d1ce428c5e98173083595
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 396, y: 4}
-  - name: drill_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 572
-      width: 188
-      height: 276
-    spriteID: 9a0d70a19e8b4ad41b12927ac94e8ac7
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 572}
-  - name: drill_Frame_6
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 200
-      y: 4
-      width: 188
-      height: 276
-    spriteID: 76e685b5e32518c4d99bab2ac69867bc
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 200, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1496296015
-    name: drill
+    guid: -1985971645
+    name: drill-glass-pane
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: drill_Frame_0
+    - name: drill-glass-pane
       frameIndex: 0
       cellRect:
-        x: 501
-        y: 170
-        width: 188
-        height: 275
-      spriteId: ad571c530de18a34983d795b51daf6ab
-    - name: drill_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 501
-        y: 170
-        width: 188
-        height: 275
-      spriteId: b02236aba886d9246b835c79dbe2aa47
-    - name: drill_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 501
-        y: 169
-        width: 188
-        height: 276
-      spriteId: df3be8c716b0f0a41a45cdc628ffaa3c
-    - name: drill_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 501
-        y: 169
-        width: 188
-        height: 276
-      spriteId: 204247cf47ea0084d8022353a73d6a9d
-    - name: drill_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 501
-        y: 170
-        width: 188
-        height: 275
-      spriteId: da154757ef5d1ce428c5e98173083595
-    - name: drill_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 501
-        y: 169
-        width: 188
-        height: 276
-      spriteId: 9a0d70a19e8b4ad41b12927ac94e8ac7
-    - name: drill_Frame_6
-      frameIndex: 6
-      cellRect:
-        x: 501
-        y: 169
-        width: 188
-        height: 276
-      spriteId: 76e685b5e32518c4d99bab2ac69867bc
+        x: 549
+        y: 248
+        width: 52
+        height: 95
+      spriteId: 2bc6ed3c7060f414896e944b90fac2a6
     linkedCells: []
     parentIndex: -1
   platformSettings:

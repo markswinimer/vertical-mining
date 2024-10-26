@@ -5,7 +5,7 @@ public class SuckResources : MonoBehaviour
 {
     private bool _playerInDrillRoom;
     private Inventory _playerInventory;
-
+    public Inventory drillInventory;
     public GameObject _suckPoint;
 
     private int _playerInventoryCount = 0;
@@ -15,7 +15,7 @@ public class SuckResources : MonoBehaviour
     private float _minTimeBetweenItemSucks = 0.1f;
     private float _itemSuckDecayRate = 0.3f;
 
-    public float floatForce = 1f;  // The gentle force applied upward
+    public float floatForce = 2f;  // The gentle force applied upward
     public float lifetime = 1.5f;  // How long the icon stays before being destroyed
     public float suctionForce = 5f;  // The force pulling the item towards the suction point
     public float suctionDelay = 0.5f;  // Delay before the suction starts
@@ -75,9 +75,6 @@ public class SuckResources : MonoBehaviour
             // Start the suction effect after a delay
             StartCoroutine(SuckUpAfterDelay(rb, _suckPoint.transform.position, suctionDelay));
         }
-
-        // Destroy the rock after a certain time
-        Destroy(rock, lifetime);
     }
 
     private IEnumerator SuckUpAfterDelay(Rigidbody2D rb, Vector3 suctionPoint, float delay)
@@ -94,6 +91,23 @@ public class SuckResources : MonoBehaviour
             rb.AddForce(direction * suctionForce);
 
             yield return null;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (_playerInDrillRoom)
+        {
+            if (other.CompareTag("Suckable"))  // Tag objects to be sucked up with "Suckable"
+            {
+                ObtainableItem obtainableItem = other.GetComponent<ObtainableItem>();
+
+                if (obtainableItem != null)
+                {
+                    drillInventory.AddItem(obtainableItem.Item, obtainableItem.Amount);
+                    Destroy(other.gameObject);
+                }
+            }
         }
     }
 }

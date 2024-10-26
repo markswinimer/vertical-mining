@@ -47,6 +47,7 @@ public class DrillRoomCheck : MonoBehaviour
             drillMask.enabled = true;
 
             roomObject.GetComponent<SpriteRenderer>().enabled = true;
+            //hide a canvas object too
         }
     }
 
