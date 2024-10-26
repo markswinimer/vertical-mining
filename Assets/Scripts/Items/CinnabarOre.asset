@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a1c843ce98e7f94e9b786640d82dd9a, type: 3}
-  m_Name: Ore
+  m_Name: CinnabarOre
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 358562595636805164, guid: 34361d96eb2e33544be5b91f1b232f7b, type: 3}
+  Prefab: {fileID: 358562595636805164, guid: 312600b80715673469420f61ef8273cd, type: 3}
   ItemType: 1
   Description: It's just some ore man
   MaxStackSize: 64

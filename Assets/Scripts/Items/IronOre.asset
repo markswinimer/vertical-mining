@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0c4683450c82dc4d9fd75e36557e88b, type: 3}
-  m_Name: CinnabarOreData
+  m_Script: {fileID: 11500000, guid: 0a1c843ce98e7f94e9b786640d82dd9a, type: 3}
+  m_Name: IronOre
   m_EditorClassIdentifier: 
-  MaxDurability: 300
-  DrillType: 2
-  OreToDrop: {fileID: 11400000, guid: 1bcff32d0dc8b56489e3340dc8f31cbe, type: 2}
+  Prefab: {fileID: 358562595636805164, guid: c456bf5c45d833d44bbaec2afa0e34cf, type: 3}
+  ItemType: 1
+  Description: It's just some ore man
+  MaxStackSize: 64
