@@ -74,11 +74,8 @@ public class DrillState : Core
 	{
 		if (primaryMouseInput == true)
 		{
-			Debug.Log("Drill");
-
 			if (machine.state == drillingState.isComplete)
 			{
-				Debug.Log("Drilling COMPLETE");
 				machine.Set(drillingState, true);
 			}
 			else
@@ -90,7 +87,6 @@ public class DrillState : Core
 		}
 		else if (secondaryMouseInput == true)
 		{
-			Debug.Log("Suck");
 			machine.Set(suckState);
 			NoiseMaker.NoiseLevel = SuckNoiseLevel;
 			NoiseMaker.IsMakingNoise = true;

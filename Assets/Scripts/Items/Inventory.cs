@@ -79,7 +79,6 @@ public class Inventory : ScriptableObject
 		{
 			case ItemType.Ore:
 				int amount = GetItemCountByName(ItemType.Ore);
-				Debug.Log("Ore amount: " + amount);
 				OnAmmoChanged?.Invoke(amount);
 				break;
 			default:
@@ -111,6 +110,5 @@ public class Inventory : ScriptableObject
 			total += slot.Amount;
 		}
 		return total;
-		Debug.Log("Total inventory count: " + total);
 	}
 }

@@ -28,7 +28,6 @@ public class FuelBar : MonoBehaviour
 
     public void SetFuelLevel(float fuelLevel)
     {
-        Debug.Log("Fuel Level: " + fuelLevel);
         slider.value = fuelLevel;
     }
 }

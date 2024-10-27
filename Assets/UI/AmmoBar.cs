@@ -10,14 +10,12 @@ public class AmmoBar : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("AmmoBar enabled");
         // Subscribe to the OnPlayerDamaged event
         inventory.OnAmmoChanged += SetAmmo;
     }
 
     private void OnDisable()
     {
-        Debug.Log("AmmoBar disabled");
         // Unsubscribe from the event to prevent memory leaks
         inventory.OnAmmoChanged -= SetAmmo;
     }

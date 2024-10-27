@@ -24,8 +24,6 @@ public class SuckPoint : MonoBehaviour
         {
             if ( other.CompareTag("Suckable") )  // Tag objects to be sucked up with "Suckable"
             {
-                Debug.Log("Sucking" + other.name);
-
                 ObtainableItem obtainableItem = other.GetComponent<ObtainableItem>();
                 if (obtainableItem != null)
                 {

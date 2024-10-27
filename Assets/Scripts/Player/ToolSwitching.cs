@@ -29,6 +29,11 @@ public class ToolSwitching : MonoBehaviour
             selectedTool = 2;
             SelectTool();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
+        {
+            selectedTool = 3;
+            SelectTool();
+        }
     }
 
 
