@@ -6,7 +6,7 @@ public class NavigateState : State
 {
     public Vector2 destination;
     public float speed = 1;
-    public float threshold = 0.1f;
+    public float threshold = 1f;
 
     public State animation;
 
@@ -17,6 +17,7 @@ public class NavigateState : State
 
     public override void Do()
     {
+        Debug.Log(Vector2.Distance(core.transform.position, destination) + " distance to go");
         if (Vector2.Distance(core.transform.position, destination) < threshold)
         {
             isComplete = true;
