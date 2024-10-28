@@ -8,26 +8,37 @@ using UnityEngine.Tilemaps;
 public class BarrierManager : MonoBehaviour
 {
 	public OreRuleTile BarrierTileType;
-	
 	public Dictionary<Vector3Int, OreRuleTile> BarrierTiles;
 	public Tilemap Tilemap;
 	public List<Vector3Int> DestroyedTilePos;
 	public List<int> DestroyedColumn;
 	public int XGapSizeOffset;
+	public int YGapSizeOffset;
+	private int _yStartCheck;
+	private int _yEndCheck;
 	// Start is called before the first frame update
 	void Start()
 	{
+		
 	}
 	
 	public void InitializeData() 
 	{
+		var tilePos = Tilemap.WorldToCell(transform.position);
+		_yStartCheck = tilePos.y - YGapSizeOffset;
+		_yEndCheck = tilePos.y + YGapSizeOffset;
 		BarrierTiles = new Dictionary<Vector3Int, OreRuleTile>();
 		DestroyedTilePos = new List<Vector3Int>();
 		DestroyedColumn = new List<int>();
 		var allPos = Tilemap.cellBounds.allPositionsWithin;
-		Debug.Log("Doing allpos");
+		Debug.Log("Doing allpos, yStart = " + _yStartCheck +", yEnd = " + _yEndCheck);
 		foreach(var pos in allPos)
 		{
+			if(_yStartCheck > pos.y || pos.y > _yEndCheck)
+			{
+				Debug.Log("Out of bounds");
+				continue;	
+			}
 			var tile = Tilemap.GetTile(pos);
 			Debug.Log("allpos check + null " + (tile ==null).ToString());
 			if(tile != null && tile is OreRuleTile oreTile)
@@ -80,5 +91,13 @@ public class BarrierManager : MonoBehaviour
 			
 			TileManager.Instance.DestroyTiles(tilesToDestroy);
 		}
+	}
+	
+	void OnDrawGizmos()
+	{
+	#if UNITY_EDITOR
+		Gizmos.DrawLine(new Vector3(transform.position.x - 20, transform.position.y - YGapSizeOffset), new Vector3(transform.position.x + 20, transform.position.y - YGapSizeOffset, 0));
+		Gizmos.DrawLine(new Vector3(transform.position.x - 20, transform.position.y + YGapSizeOffset), new Vector3(transform.position.x + 20, transform.position.y + YGapSizeOffset, 0));
+	#endif
 	}
 }
