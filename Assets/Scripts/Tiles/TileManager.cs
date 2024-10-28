@@ -10,7 +10,7 @@ public class TileManager : MonoBehaviour, IDataPersistence
 
 	private Dictionary<Vector3Int, TileData> _tileDataDictionary;
 	private Dictionary<Vector3Int, TileInstance> _tileInstanceDictionary;
-	public Tilemap Tilemap;
+	public Tilemap TileMap;
 
 	public TileInstance tileInstance;
 	public List<BarrierManager> Barriers;
@@ -24,7 +24,7 @@ public class TileManager : MonoBehaviour, IDataPersistence
 			Destroy(gameObject);
 			return;
 		}
-		Barriers = new List<BarrierManager>();
+		Barriers = FindObjectsByType<BarrierManager>(FindObjectsSortMode.None).ToList();
 
 		Instance = this;
 	}
@@ -35,11 +35,11 @@ public class TileManager : MonoBehaviour, IDataPersistence
 
 	void InitializeTileData()
 	{
-		foreach (Vector3Int position in Tilemap.cellBounds.allPositionsWithin)
+		foreach (Vector3Int position in TileMap.cellBounds.allPositionsWithin)
 		{
-			if (Tilemap.HasTile(position))
+			if (TileMap.HasTile(position))
 			{
-				var tileBase = Tilemap.GetTile(position);
+				var tileBase = TileMap.GetTile(position);
 				TileData tileData = GetTileDataFromOre(tileBase);
 				_tileDataDictionary[position] = tileData;
 			}
@@ -49,7 +49,7 @@ public class TileManager : MonoBehaviour, IDataPersistence
 
 	public Vector3Int GetTilemapWorldToCell(Vector3 worldPosition)
 	{
-		return Tilemap.WorldToCell(worldPosition);
+		return TileMap.WorldToCell(worldPosition);
 	}
 
 	public bool IsTileValid(Vector3Int position)
@@ -64,14 +64,14 @@ public class TileManager : MonoBehaviour, IDataPersistence
 
 	void InstantiateTile(Vector3Int position)
 	{
-		Vector3 worldPosition = Tilemap.CellToWorld(position);
+		Vector3 worldPosition = TileMap.CellToWorld(position);
 
 		// offset the x value to account for the tilemap anchor (bottom left? .5, .5 is the value)
-		Vector3 centeredPosition = worldPosition + new Vector3(Tilemap.tileAnchor.x, 0, 0);
+		Vector3 centeredPosition = worldPosition + new Vector3(TileMap.tileAnchor.x, 0, 0);
 
 		TileInstance tileInstance = Instantiate(this.tileInstance, centeredPosition, Quaternion.identity);
 		tileInstance.transform.position = new Vector3(centeredPosition.x, centeredPosition.y, -0.1f);
-		var tileBase = Tilemap.GetTile(position);
+		var tileBase = TileMap.GetTile(position);
 		if(tileBase is OreRuleTile oreTile)
 		{
 			tileInstance.dropPrefab = oreTile.OreData.OreToDrop;
@@ -126,7 +126,7 @@ public class TileManager : MonoBehaviour, IDataPersistence
 		_tileDataDictionary.Remove(position);
 		_tileInstanceDictionary.Remove(position);
 
-		Tilemap.SetTile(position, null);
+		TileMap.SetTile(position, null);
 		if(tileInstance != null)
 		{
 			tileInstance.ProcessDestroyTile();
@@ -197,11 +197,11 @@ public class TileManager : MonoBehaviour, IDataPersistence
 	
 	private void DestroyDeadTiles()
 	{
-		foreach (Vector3Int position in Tilemap.cellBounds.allPositionsWithin)
+		foreach (Vector3Int position in TileMap.cellBounds.allPositionsWithin)
 		{
-			if (Tilemap.HasTile(position) && !_tileDataDictionary.ContainsKey(position))
+			if (TileMap.HasTile(position) && !_tileDataDictionary.ContainsKey(position))
 			{
-				Tilemap.SetTile(position, null);
+				TileMap.SetTile(position, null);
 			}
 		}
 	}

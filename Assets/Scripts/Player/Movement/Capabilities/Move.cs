@@ -41,7 +41,7 @@ public class Move : MonoBehaviour
         _onGround = _ground.OnGround;
         _onWall = _ground.OnWall;
         _velocity = _body.velocity;
-        Debug.Log(_onGround + " = ground " + _onWall + " = wall");
+        //Debug.Log(_onGround + " = ground " + _onWall + " = wall");
         // no friction on walls, can implement wall slide if you want
         _acceleration = ( _onGround && !_onWall ) ? _maxAcceleration : _maxAirAcceleration;
         _maxSpeedChange = _acceleration * Time.deltaTime;
