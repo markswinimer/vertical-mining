@@ -7,6 +7,7 @@ public class FlyingNavigateState : State
     public Vector2 destination;
     public float speed = 1f;
     public float threshold = 2f;
+    public float _maxNavigateTime = 5f;
 
     public override void Enter()
     {
@@ -15,9 +16,8 @@ public class FlyingNavigateState : State
 
     public override void Do()
     {
-
         // Check if the enemy is close to the destination
-        if (Vector2.Distance(core.transform.position, destination) < threshold)
+        if (Vector2.Distance(core.transform.position, destination) < threshold  || time > _maxNavigateTime)
         {
             isComplete = true;
             body.velocity = Vector2.zero;

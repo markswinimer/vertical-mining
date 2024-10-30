@@ -29,7 +29,7 @@ public class Player : MonoBehaviour, IDataPersistence, IDamageable
 	private bool _willDie = false;
 
 	public bool Invincible { get; set; }
-	private float _invincibleTime = 2f;
+	private float _invincibleTime = .6f;
 	private float _timeSpentInvincible { get; set; }
 
 	private Rigidbody2D _rb;
@@ -78,6 +78,16 @@ public class Player : MonoBehaviour, IDataPersistence, IDamageable
 		if (Invincible)
 		{
 			_timeSpentInvincible += Time.deltaTime;
+
+			// modify the alpha of the sprite renderer to make the player flash
+			if (_timeSpentInvincible % 0.1f < 0.05f)
+			{
+				spriteRenderer.color = new Color(1, 1, 1, 0);
+			}
+			else
+			{
+				spriteRenderer.color = originalColor;
+			}
 
 			if (_timeSpentInvincible < _invincibleTime)
 			{
@@ -146,6 +156,7 @@ public class Player : MonoBehaviour, IDataPersistence, IDamageable
 	{
 		Invincible = true;
 		_timeSpentInvincible = 0;
+
 	}
 	public void TakeDamage(int damage)
 	{

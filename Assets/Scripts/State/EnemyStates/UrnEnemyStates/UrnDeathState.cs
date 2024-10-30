@@ -6,6 +6,7 @@ using UnityEngine;
 public class UrnDeathState : State
 {
     public AnimationClip clip;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     public override void Enter()
     {
@@ -17,6 +18,13 @@ public class UrnDeathState : State
 
     public override void Do()
     {
-        
+        // wait a few seconds before completing using ienumerator
+        //reduce alpha every frame
+        spriteRenderer.color = new Color(1, 1, 1, 1 - time / 2);
+        if (time > 2)
+        {
+            //fade out sprite on death
+            isComplete = true;
+        }
     }
 }

@@ -64,11 +64,7 @@ public class UrnEnemy : Core, IDamageable
                 _timeSpentInvincible = 0;
             }
         }
-        // if were chasing but no target, go back to idle
-        if (_willDie)
-        {
-            Set(urnDeathState);
-        }
+
         // if were chasing but no target, go back to idle
         if (state.isComplete)
         {
@@ -78,8 +74,14 @@ public class UrnEnemy : Core, IDamageable
             }
             else if (state == urnDeathState)
             {
+                _willDie = false;
                 HandleDeath();
             }
+        }
+
+        if (_willDie)
+        {
+            Set(urnDeathState);
         }
 
         // if in idle or wander, look for target

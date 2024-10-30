@@ -10,6 +10,9 @@ public class UrnFiringState : State
     public Vector3 focusPosition;
 
     public GameObject impactEffect;
+    public float _damagingIntervalElapsed = 0f;
+    public float _damagingInterval = .1f;
+
 
     public float _attackDuration = 2f; // Duration of the laser attack
     private float _firingTimeElapsed;
@@ -19,6 +22,7 @@ public class UrnFiringState : State
 
     public override void Enter()
     {
+        _damagingIntervalElapsed = _damagingInterval;
         _firingTimeElapsed = 0f;
         focusPosition = urnChaseAttackState.target.position;
         FaceTarget(focusPosition);
@@ -50,6 +54,8 @@ public class UrnFiringState : State
 
     void ShootLaser()
     {
+        _damagingIntervalElapsed += Time.deltaTime;
+
         // Enable the LineRenderer for the laser
         lineRenderer.enabled = true;
 
@@ -60,20 +66,19 @@ public class UrnFiringState : State
         Vector2 direction = (focusPosition - core.transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(core.transform.position, direction, Mathf.Infinity, laserCollisionLayer);
 
-        if (hit.collider != null)
+        if (hit.collider != null && _damagingIntervalElapsed > _damagingInterval)
         {
-
+            _damagingIntervalElapsed = 0f;
             IDamageable damageable = hit.collider.GetComponent<IDamageable>();
 
             if (damageable != null)
             {
-                // get damageable transform position
-                Transform damageableTransform = hit.collider.GetComponent<Transform>();
-                GameObject impactEffectVFX = Instantiate(impactEffect, damageableTransform.position, transform.rotation);
-                Destroy(impactEffectVFX, 2f);
-                
                 if (damageable.Invincible == false)
                 {
+                    Transform damageableTransform = hit.collider.GetComponent<Transform>();
+                    GameObject impactEffectVFX = Instantiate(impactEffect, damageableTransform.position, transform.rotation);
+                    Destroy(impactEffectVFX, 2f);
+                    
                     damageable.TakeDamage(3);
                 }
             }

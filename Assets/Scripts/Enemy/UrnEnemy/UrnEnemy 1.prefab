@@ -723,6 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 3170127438398230882, guid: dddc75717a7cde040a1ebc9a6a4a4230, type: 3}
+  spriteRenderer: {fileID: 1846510333742239254}
 --- !u!1 &7118701669000649037
 GameObject:
   m_ObjectHideFlags: 0

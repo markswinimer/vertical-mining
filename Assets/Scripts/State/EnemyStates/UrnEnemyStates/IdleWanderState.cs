@@ -10,24 +10,39 @@ public class IdleWanderState : State
     public float rotationSpeed = 100f;
 
     public AnimationClip clip;
-
+    private TileManager _tileManager;
     public float vision = 100f;
 
     public override void Enter()
     {
+        _tileManager = TileManager.Instance;
         GoToNextDestination();
         animator.Play(clip.name);
     }
 
     void GoToNextDestination()
     {
-        // Generate a random position nearby within 100-200 px
-        float randomX = Random.Range(1, 10) * (Random.value > 0.5f ? 1 : -1);
-        float randomY = Random.Range(1, 5) * (Random.value > 0.5f ? 1 : -1);
+        Vector2 randomSpot;
+        bool isBlocked;
 
-        Vector2 randomSpot = new Vector2(core.transform.position.x + randomX, core.transform.position.y + randomY);
+        do
+        {
+            // Generate a random position nearby within 100-200 px
+            float randomX = Random.Range(1, 10) * (Random.value > 0.5f ? 1 : -1);
+            float randomY = Random.Range(1, 5) * (Random.value > 0.5f ? 1 : -1);
 
-        // Set the new destination without wall checking
+            randomSpot = new Vector2(core.transform.position.x + randomX, core.transform.position.y + randomY);
+
+            // Check if the random spot overlaps with a wall
+            isBlocked = Physics2D.BoxCast(randomSpot, Vector2.one * 0.5f, 0f, Vector2.zero, 0, LayerMask.GetMask("Ground"));
+
+            Vector3Int gridPosition = _tileManager.GetTilemapWorldToCell(randomSpot);
+
+            isBlocked = _tileManager.IsTileValid(gridPosition);
+        }
+        while (isBlocked); // Repeat until we find a spot that is not blocked
+
+        // Set the new destination
         flyingNavigateState.destination = randomSpot;
         Set(flyingNavigateState, true);
     }
