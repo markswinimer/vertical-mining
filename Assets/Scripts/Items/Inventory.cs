@@ -101,6 +101,30 @@ public class Inventory : ScriptableObject
 		
 		return slot.Item;
 	}
+	
+	public bool TryRemoveItems(ItemType type, int amount)
+	{
+		var slots = Container.Where(it => it.Item.ItemType == type);
+		
+		if (slots.Count() == 0)
+		{
+			Debug.Log("No slots");
+			return false;
+		}
+		
+		var amountInInventory = slots.Select(s => s.Amount).Sum();
+		
+		if(amountInInventory < amount)
+		{
+			Debug.Log("Note enough ore in drill");
+			return false;
+		} 
+		
+		var slot = slots.First();
+		
+		RemoveItem(slot.Item, amount);
+		return true;
+	}
 
 	public int GetTotalInventoryCount()
 	{

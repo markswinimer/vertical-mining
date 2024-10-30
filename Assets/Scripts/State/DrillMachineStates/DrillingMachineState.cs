@@ -14,12 +14,12 @@ public class DrillingMachineState : State
 
     public override void Enter()
     {
-        _drillDamage = DrillMachine.Instance.DrillDamage;
         animator.Play(clip.name);
     }
 
     public override void Do()
     {
+        _drillDamage = DrillMachine.Instance.DrillDamage;
         _drillPositions = _drillTargeter.GetDrillTargetTiles();
 
         if (_drillPositions.Count > 0)

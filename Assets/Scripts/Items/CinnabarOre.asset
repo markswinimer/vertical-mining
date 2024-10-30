@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CinnabarOre
   m_EditorClassIdentifier: 
   Prefab: {fileID: 358562595636805164, guid: 312600b80715673469420f61ef8273cd, type: 3}
-  ItemType: 1
-  Description: It's just some ore man
+  ItemType: 4
+  Description: 'It''s just some ore man - for upgrading : O'
   MaxStackSize: 64
