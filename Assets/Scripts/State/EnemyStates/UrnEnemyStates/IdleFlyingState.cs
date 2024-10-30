@@ -6,7 +6,6 @@ public class IdleFlyingState : State
 {
     public AnimationClip clip;
 
-    public float rotationSpeed = 200f;
     public float floatAmplitude = 0.5f;
     public float floatFrequency = 1f;
 
@@ -17,6 +16,7 @@ public class IdleFlyingState : State
 
     public override void Enter()
     {
+        Debug.Log("IdleFlyingState");
         isComplete = false;
 
         animator.Play(clip.name);
@@ -31,15 +31,6 @@ public class IdleFlyingState : State
 
     public override void Do()
     {
-        if (_rb != null)
-        {
-            _rb.MoveRotation(_rb.rotation + rotationSpeed * Time.deltaTime);
-        }
-        else
-        {
-            _urnEnemy.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
-        }
-    
         float newY = startPosition.y + Mathf.Sin(Time.time * floatFrequency) * floatAmplitude;
         _urnEnemy.transform.position = new Vector3(_urnEnemy.transform.position.x, newY, _urnEnemy.transform.position.z);
     }

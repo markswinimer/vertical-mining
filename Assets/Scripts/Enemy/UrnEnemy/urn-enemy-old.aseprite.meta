@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: urn-enemy_Frame_2
+  - name: urn-enemy-old_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 142
       width: 55
       height: 60
-    spriteID: ef6ae57d36e68d24db7bfefdc10e387f
+    spriteID: 406a1382dd0cc814ebc348773448005d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 335, y: 142}
-  - name: urn-enemy_Frame_3
+  - name: urn-enemy-old_Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 210
       width: 55
       height: 60
-    spriteID: fb89c15f07a75724495b353a50379010
+    spriteID: 8711e8c31004b934fab530e64783cea5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 335, y: 210}
-  - name: urn-enemy_Frame_4
+  - name: urn-enemy-old_Frame_4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 82
       width: 55
       height: 62
-    spriteID: 3ef360a92190acb43b24d6316bd39d8a
+    spriteID: 1110534d61fb5654a8bff6673cea48f8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 272, y: 82}
-  - name: urn-enemy_Frame_5
+  - name: urn-enemy-old_Frame_5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 152
       width: 55
       height: 62
-    spriteID: 500c837e478ffdc458343b2fd7d4af12
+    spriteID: f9ad09dc22e82344d9ca9556580d2ed0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 272, y: 152}
-  - name: urn-enemy_Frame_6
+  - name: urn-enemy-old_Frame_6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 222
       width: 55
       height: 62
-    spriteID: 912a797bc0d92fb469b373f8fafe0b13
+    spriteID: 8f2cfa206a66a0a469f6a7f4dae24a12
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +221,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 272, y: 222}
-  - name: urn-enemy_Frame_7
+  - name: urn-enemy-old_Frame_7
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 292
       width: 55
       height: 62
-    spriteID: 5a3af7327ce83c44b9f7fe827f998539
+    spriteID: da397c4c6dccc92489963fafe9c166d0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,7 +241,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 272, y: 292}
-  - name: urn-enemy_Frame_8
+  - name: urn-enemy-old_Frame_8
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 362
       width: 55
       height: 62
-    spriteID: 51fe422130bc13949966ecc881f29f39
+    spriteID: ea195f4b498adc644951877ac73e8682
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -261,7 +261,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 272, y: 362}
-  - name: urn-enemy_Frame_9
+  - name: urn-enemy-old_Frame_9
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 432
       width: 55
       height: 62
-    spriteID: a9055cfca24c67041984f0adac2023ed
+    spriteID: 8efeb0dbc9be8c049aa491b06e989ed1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -281,7 +281,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 272, y: 432}
-  - name: urn-enemy_Frame_10
+  - name: urn-enemy-old_Frame_10
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -292,7 +292,7 @@ ScriptedImporter:
       y: 4
       width: 55
       height: 61
-    spriteID: 09d78b89814ff1b49a3d45f60ecf6849
+    spriteID: 0175a478887165349bb5db595c763aa2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -301,7 +301,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 335, y: 4}
-  - name: urn-enemy_Frame_11
+  - name: urn-enemy-old_Frame_11
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -312,7 +312,7 @@ ScriptedImporter:
       y: 73
       width: 55
       height: 61
-    spriteID: f984b00e7b285b941846ececee49e1ff
+    spriteID: e2a1e4a684172ab42b0c24662b6d7a5e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -321,7 +321,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 335, y: 73}
-  - name: urn-enemy_Frame_12
+  - name: urn-enemy-old_Frame_12
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -332,7 +332,7 @@ ScriptedImporter:
       y: 278
       width: 55
       height: 60
-    spriteID: 44290bb87953e2e40a13585ce7ae74e6
+    spriteID: e6d2ff6d094b4f744b4888a6f04e5038
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -341,7 +341,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 335, y: 278}
-  - name: urn-enemy_Frame_13
+  - name: urn-enemy-old_Frame_13
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -352,7 +352,7 @@ ScriptedImporter:
       y: 346
       width: 55
       height: 60
-    spriteID: 5b08990761fc2284d931b836585194af
+    spriteID: fcec4a5fb223ddd46a1993c5b3b28aef
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -361,7 +361,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 335, y: 346}
-  - name: urn-enemy_Frame_14
+  - name: urn-enemy-old_Frame_14
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -372,7 +372,7 @@ ScriptedImporter:
       y: 4
       width: 55
       height: 70
-    spriteID: 46ca65361a5c3e84da51297099da2535
+    spriteID: 55ebf8e1f27d7534c8634aa4adb10695
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -381,7 +381,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 146, y: 4}
-  - name: urn-enemy_Frame_15
+  - name: urn-enemy-old_Frame_15
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -392,7 +392,7 @@ ScriptedImporter:
       y: 82
       width: 55
       height: 70
-    spriteID: 6dfff1ae467219345b81bed1b4a71bce
+    spriteID: aec8e8948acbf6840a563e2e0fae4de1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -401,7 +401,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 146, y: 82}
-  - name: urn-enemy_Frame_16
+  - name: urn-enemy-old_Frame_16
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -412,7 +412,7 @@ ScriptedImporter:
       y: 160
       width: 55
       height: 70
-    spriteID: 286098ef8fea18d48bdf6e03d7b944a4
+    spriteID: 4d5f10f253f98ee418269ad43c701708
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -421,7 +421,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 146, y: 160}
-  - name: urn-enemy_Frame_17
+  - name: urn-enemy-old_Frame_17
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -432,7 +432,7 @@ ScriptedImporter:
       y: 238
       width: 55
       height: 70
-    spriteID: 2870effdc6447704c84ea6c0847fa970
+    spriteID: 528621bebe6de424191aac1d00fa1e2f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -441,7 +441,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 146, y: 238}
-  - name: urn-enemy_Frame_18
+  - name: urn-enemy-old_Frame_18
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -452,7 +452,7 @@ ScriptedImporter:
       y: 316
       width: 55
       height: 70
-    spriteID: 5451e0b69a3ef564f82bc10eb9536e72
+    spriteID: 7577301a7b37d9d4aaa04f6343522c48
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -461,7 +461,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 146, y: 316}
-  - name: urn-enemy_Frame_19
+  - name: urn-enemy-old_Frame_19
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -472,7 +472,7 @@ ScriptedImporter:
       y: 394
       width: 55
       height: 70
-    spriteID: dd8840f5c172b1c419e228d4ffdfc72d
+    spriteID: 8d4c988b9c2e9f24d95f3e01c916bb5c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -481,7 +481,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 146, y: 394}
-  - name: urn-enemy_Frame_20
+  - name: urn-enemy-old_Frame_20
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -492,7 +492,7 @@ ScriptedImporter:
       y: 4
       width: 55
       height: 70
-    spriteID: 195d23551df536b4ca12994ae224074c
+    spriteID: dd331b67297704e4fafe537a795ccbb5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -501,7 +501,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 209, y: 4}
-  - name: urn-enemy_Frame_21
+  - name: urn-enemy-old_Frame_21
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -512,7 +512,7 @@ ScriptedImporter:
       y: 82
       width: 55
       height: 70
-    spriteID: 6c4b950344c548b4a872d636a6496f75
+    spriteID: d7b3b85252f0d9b40b71b73cd77ef993
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -521,7 +521,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 209, y: 82}
-  - name: urn-enemy_Frame_22
+  - name: urn-enemy-old_Frame_22
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -532,7 +532,7 @@ ScriptedImporter:
       y: 160
       width: 55
       height: 70
-    spriteID: 76942278d67e80c4e92763e24ce10502
+    spriteID: 8301a73882c0893478e54dcd74d99d41
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -541,7 +541,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 209, y: 160}
-  - name: urn-enemy_Frame_23
+  - name: urn-enemy-old_Frame_23
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -552,7 +552,7 @@ ScriptedImporter:
       y: 238
       width: 55
       height: 70
-    spriteID: ff0cd38c0c5e6e443a86656f366c9b3e
+    spriteID: a7548b1aa6c78cf4abab7202856512ed
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -561,7 +561,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 209, y: 238}
-  - name: urn-enemy_Frame_24
+  - name: urn-enemy-old_Frame_24
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -572,7 +572,7 @@ ScriptedImporter:
       y: 316
       width: 55
       height: 70
-    spriteID: 888d2b4819dd4094681310fbca519ec6
+    spriteID: fcc103de91a0ffa41afa742dd4a4d78d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -581,7 +581,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 209, y: 316}
-  - name: urn-enemy_Frame_25
+  - name: urn-enemy-old_Frame_25
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -592,7 +592,7 @@ ScriptedImporter:
       y: 394
       width: 55
       height: 70
-    spriteID: 55debe3af697cab4eafd0d16bf6a7470
+    spriteID: dbc0d074b09210747a88ffbec7bdc416
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -601,7 +601,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 209, y: 394}
-  - name: urn-enemy_Frame_26
+  - name: urn-enemy-old_Frame_26
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -612,7 +612,7 @@ ScriptedImporter:
       y: 316
       width: 62
       height: 70
-    spriteID: 4cdbe8749900cec4fbc82ca65c80b484
+    spriteID: 673cfe3003c43e14eaae8c845eb0c790
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -621,7 +621,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 316}
-  - name: urn-enemy_Frame_27
+  - name: urn-enemy-old_Frame_27
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -632,7 +632,7 @@ ScriptedImporter:
       y: 394
       width: 62
       height: 70
-    spriteID: e079ebc938c84054da35165b3fb121b2
+    spriteID: 0e2f386e5e446514cb0a1c8786d80b49
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -641,7 +641,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 394}
-  - name: urn-enemy_Frame_28
+  - name: urn-enemy-old_Frame_28
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -652,7 +652,7 @@ ScriptedImporter:
       y: 4
       width: 62
       height: 70
-    spriteID: fa452300955503b43b86eb8265762f9f
+    spriteID: bd78114bd4b0c374b82a5acbfa6eebe7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -661,7 +661,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 76, y: 4}
-  - name: urn-enemy_Frame_29
+  - name: urn-enemy-old_Frame_29
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -672,7 +672,7 @@ ScriptedImporter:
       y: 82
       width: 62
       height: 70
-    spriteID: c171f30e957111143af286c27dc5408c
+    spriteID: 8141295081a522f428b22e912606f444
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -681,7 +681,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 76, y: 82}
-  - name: urn-enemy_Frame_30
+  - name: urn-enemy-old_Frame_30
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -692,7 +692,7 @@ ScriptedImporter:
       y: 160
       width: 62
       height: 70
-    spriteID: 6674ded992bc1c4458ad8a520e293a13
+    spriteID: 510b22d839def0e4c9ae28839fa6139b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -701,7 +701,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 76, y: 160}
-  - name: urn-enemy_Frame_31
+  - name: urn-enemy-old_Frame_31
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -712,7 +712,7 @@ ScriptedImporter:
       y: 238
       width: 62
       height: 70
-    spriteID: 450b7195e30f33c45a3fd32076e0ad1a
+    spriteID: 9f74d522d9aa7364984ffb6a2edb06c3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -721,7 +721,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 76, y: 238}
-  - name: urn-enemy_Frame_32
+  - name: urn-enemy-old_Frame_32
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -732,7 +732,7 @@ ScriptedImporter:
       y: 82
       width: 63
       height: 70
-    spriteID: 086a1b39eeb138445a564a906824be24
+    spriteID: 845796d74202be249bdea59cebce5ec8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -741,7 +741,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 82}
-  - name: urn-enemy_Frame_33
+  - name: urn-enemy-old_Frame_33
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -752,7 +752,7 @@ ScriptedImporter:
       y: 160
       width: 63
       height: 70
-    spriteID: 6f348a680e6916b4b80d29992f5086bd
+    spriteID: 677dfbe9c123c554698f0f07bae20a2e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -761,7 +761,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 160}
-  - name: urn-enemy_Frame_34
+  - name: urn-enemy-old_Frame_34
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -772,7 +772,7 @@ ScriptedImporter:
       y: 316
       width: 62
       height: 70
-    spriteID: 292050b7ebd55854ba5f05fceb8a32ed
+    spriteID: b2bebbf913346b64a9b2da76c82bec9d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -781,7 +781,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 76, y: 316}
-  - name: urn-enemy_Frame_35
+  - name: urn-enemy-old_Frame_35
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -792,7 +792,7 @@ ScriptedImporter:
       y: 4
       width: 64
       height: 70
-    spriteID: bb39e592a9f90d94fa057ca8129ba333
+    spriteID: 09b25ef92aadfae408154b0a6c4147cb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -801,7 +801,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: urn-enemy_Frame_36
+  - name: urn-enemy-old_Frame_36
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -812,7 +812,7 @@ ScriptedImporter:
       y: 238
       width: 63
       height: 70
-    spriteID: 2b06d45c41ce6704da366dba70c7a0c1
+    spriteID: 180627d0e0314d74ab1d2d84072ad4eb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -821,7 +821,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 238}
-  - name: urn-enemy_Frame_37
+  - name: urn-enemy-old_Frame_37
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -832,7 +832,7 @@ ScriptedImporter:
       y: 394
       width: 62
       height: 70
-    spriteID: 6292a205ad6a0d44e80d7bfcce5bed94
+    spriteID: 6b6fa4ec8aef38f48972223ffd43bb37
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -841,7 +841,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 76, y: 394}
-  - name: urn-enemy_Frame_0
+  - name: urn-enemy-old_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -852,7 +852,7 @@ ScriptedImporter:
       y: 4
       width: 55
       height: 70
-    spriteID: 957fd07a2f9734a4d907ba632acf9cb5
+    spriteID: b53df5e46147a1b4a9d5dd9b0eb758ad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -861,7 +861,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 272, y: 4}
-  - name: urn-enemy_Frame_1
+  - name: urn-enemy-old_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 7
@@ -872,7 +872,7 @@ ScriptedImporter:
       y: 414
       width: 55
       height: 59
-    spriteID: c86473d5d1629734fbe1fed84032af3e
+    spriteID: 4d63971581013964eb07e78429642858
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -884,316 +884,316 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 663097588
-    name: urn-enemy
+    guid: 406591188
+    name: urn-enemy-old
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: urn-enemy_Frame_2
+    - name: urn-enemy-old_Frame_2
       frameIndex: 2
       cellRect:
         x: 5
         y: 17
         width: 55
         height: 60
-      spriteId: ef6ae57d36e68d24db7bfefdc10e387f
-    - name: urn-enemy_Frame_3
+      spriteId: 406a1382dd0cc814ebc348773448005d
+    - name: urn-enemy-old_Frame_3
       frameIndex: 3
       cellRect:
         x: 5
         y: 17
         width: 55
         height: 60
-      spriteId: fb89c15f07a75724495b353a50379010
-    - name: urn-enemy_Frame_4
+      spriteId: 8711e8c31004b934fab530e64783cea5
+    - name: urn-enemy-old_Frame_4
       frameIndex: 4
       cellRect:
         x: 5
         y: 16
         width: 55
         height: 62
-      spriteId: 3ef360a92190acb43b24d6316bd39d8a
-    - name: urn-enemy_Frame_5
+      spriteId: 1110534d61fb5654a8bff6673cea48f8
+    - name: urn-enemy-old_Frame_5
       frameIndex: 5
       cellRect:
         x: 5
         y: 16
         width: 55
         height: 62
-      spriteId: 500c837e478ffdc458343b2fd7d4af12
-    - name: urn-enemy_Frame_6
+      spriteId: f9ad09dc22e82344d9ca9556580d2ed0
+    - name: urn-enemy-old_Frame_6
       frameIndex: 6
       cellRect:
         x: 5
         y: 17
         width: 55
         height: 62
-      spriteId: 912a797bc0d92fb469b373f8fafe0b13
-    - name: urn-enemy_Frame_7
+      spriteId: 8f2cfa206a66a0a469f6a7f4dae24a12
+    - name: urn-enemy-old_Frame_7
       frameIndex: 7
       cellRect:
         x: 5
         y: 17
         width: 55
         height: 62
-      spriteId: 5a3af7327ce83c44b9f7fe827f998539
-    - name: urn-enemy_Frame_8
+      spriteId: da397c4c6dccc92489963fafe9c166d0
+    - name: urn-enemy-old_Frame_8
       frameIndex: 8
       cellRect:
         x: 5
         y: 18
         width: 55
         height: 62
-      spriteId: 51fe422130bc13949966ecc881f29f39
-    - name: urn-enemy_Frame_9
+      spriteId: ea195f4b498adc644951877ac73e8682
+    - name: urn-enemy-old_Frame_9
       frameIndex: 9
       cellRect:
         x: 5
         y: 18
         width: 55
         height: 62
-      spriteId: a9055cfca24c67041984f0adac2023ed
-    - name: urn-enemy_Frame_10
+      spriteId: 8efeb0dbc9be8c049aa491b06e989ed1
+    - name: urn-enemy-old_Frame_10
       frameIndex: 10
       cellRect:
         x: 5
         y: 18
         width: 55
         height: 61
-      spriteId: 09d78b89814ff1b49a3d45f60ecf6849
-    - name: urn-enemy_Frame_11
+      spriteId: 0175a478887165349bb5db595c763aa2
+    - name: urn-enemy-old_Frame_11
       frameIndex: 11
       cellRect:
         x: 5
         y: 18
         width: 55
         height: 61
-      spriteId: f984b00e7b285b941846ececee49e1ff
-    - name: urn-enemy_Frame_12
+      spriteId: e2a1e4a684172ab42b0c24662b6d7a5e
+    - name: urn-enemy-old_Frame_12
       frameIndex: 12
       cellRect:
         x: 5
         y: 18
         width: 55
         height: 60
-      spriteId: 44290bb87953e2e40a13585ce7ae74e6
-    - name: urn-enemy_Frame_13
+      spriteId: e6d2ff6d094b4f744b4888a6f04e5038
+    - name: urn-enemy-old_Frame_13
       frameIndex: 13
       cellRect:
         x: 5
         y: 18
         width: 55
         height: 60
-      spriteId: 5b08990761fc2284d931b836585194af
-    - name: urn-enemy_Frame_14
+      spriteId: fcec4a5fb223ddd46a1993c5b3b28aef
+    - name: urn-enemy-old_Frame_14
       frameIndex: 14
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 46ca65361a5c3e84da51297099da2535
-    - name: urn-enemy_Frame_15
+      spriteId: 55ebf8e1f27d7534c8634aa4adb10695
+    - name: urn-enemy-old_Frame_15
       frameIndex: 15
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 6dfff1ae467219345b81bed1b4a71bce
-    - name: urn-enemy_Frame_16
+      spriteId: aec8e8948acbf6840a563e2e0fae4de1
+    - name: urn-enemy-old_Frame_16
       frameIndex: 16
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 286098ef8fea18d48bdf6e03d7b944a4
-    - name: urn-enemy_Frame_17
+      spriteId: 4d5f10f253f98ee418269ad43c701708
+    - name: urn-enemy-old_Frame_17
       frameIndex: 17
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 2870effdc6447704c84ea6c0847fa970
-    - name: urn-enemy_Frame_18
+      spriteId: 528621bebe6de424191aac1d00fa1e2f
+    - name: urn-enemy-old_Frame_18
       frameIndex: 18
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 5451e0b69a3ef564f82bc10eb9536e72
-    - name: urn-enemy_Frame_19
+      spriteId: 7577301a7b37d9d4aaa04f6343522c48
+    - name: urn-enemy-old_Frame_19
       frameIndex: 19
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: dd8840f5c172b1c419e228d4ffdfc72d
-    - name: urn-enemy_Frame_20
+      spriteId: 8d4c988b9c2e9f24d95f3e01c916bb5c
+    - name: urn-enemy-old_Frame_20
       frameIndex: 20
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 195d23551df536b4ca12994ae224074c
-    - name: urn-enemy_Frame_21
+      spriteId: dd331b67297704e4fafe537a795ccbb5
+    - name: urn-enemy-old_Frame_21
       frameIndex: 21
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 6c4b950344c548b4a872d636a6496f75
-    - name: urn-enemy_Frame_22
+      spriteId: d7b3b85252f0d9b40b71b73cd77ef993
+    - name: urn-enemy-old_Frame_22
       frameIndex: 22
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 76942278d67e80c4e92763e24ce10502
-    - name: urn-enemy_Frame_23
+      spriteId: 8301a73882c0893478e54dcd74d99d41
+    - name: urn-enemy-old_Frame_23
       frameIndex: 23
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: ff0cd38c0c5e6e443a86656f366c9b3e
-    - name: urn-enemy_Frame_24
+      spriteId: a7548b1aa6c78cf4abab7202856512ed
+    - name: urn-enemy-old_Frame_24
       frameIndex: 24
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 888d2b4819dd4094681310fbca519ec6
-    - name: urn-enemy_Frame_25
+      spriteId: fcc103de91a0ffa41afa742dd4a4d78d
+    - name: urn-enemy-old_Frame_25
       frameIndex: 25
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 55debe3af697cab4eafd0d16bf6a7470
-    - name: urn-enemy_Frame_26
+      spriteId: dbc0d074b09210747a88ffbec7bdc416
+    - name: urn-enemy-old_Frame_26
       frameIndex: 26
       cellRect:
         x: 1
         y: 13
         width: 62
         height: 70
-      spriteId: 4cdbe8749900cec4fbc82ca65c80b484
-    - name: urn-enemy_Frame_27
+      spriteId: 673cfe3003c43e14eaae8c845eb0c790
+    - name: urn-enemy-old_Frame_27
       frameIndex: 27
       cellRect:
         x: 0
         y: 13
         width: 62
         height: 70
-      spriteId: e079ebc938c84054da35165b3fb121b2
-    - name: urn-enemy_Frame_28
+      spriteId: 0e2f386e5e446514cb0a1c8786d80b49
+    - name: urn-enemy-old_Frame_28
       frameIndex: 28
       cellRect:
         x: 1
         y: 13
         width: 62
         height: 70
-      spriteId: fa452300955503b43b86eb8265762f9f
-    - name: urn-enemy_Frame_29
+      spriteId: bd78114bd4b0c374b82a5acbfa6eebe7
+    - name: urn-enemy-old_Frame_29
       frameIndex: 29
       cellRect:
         x: 1
         y: 13
         width: 62
         height: 70
-      spriteId: c171f30e957111143af286c27dc5408c
-    - name: urn-enemy_Frame_30
+      spriteId: 8141295081a522f428b22e912606f444
+    - name: urn-enemy-old_Frame_30
       frameIndex: 30
       cellRect:
         x: 1
         y: 13
         width: 62
         height: 70
-      spriteId: 6674ded992bc1c4458ad8a520e293a13
-    - name: urn-enemy_Frame_31
+      spriteId: 510b22d839def0e4c9ae28839fa6139b
+    - name: urn-enemy-old_Frame_31
       frameIndex: 31
       cellRect:
         x: 1
         y: 13
         width: 62
         height: 70
-      spriteId: 450b7195e30f33c45a3fd32076e0ad1a
-    - name: urn-enemy_Frame_32
+      spriteId: 9f74d522d9aa7364984ffb6a2edb06c3
+    - name: urn-enemy-old_Frame_32
       frameIndex: 32
       cellRect:
         x: 0
         y: 13
         width: 63
         height: 70
-      spriteId: 086a1b39eeb138445a564a906824be24
-    - name: urn-enemy_Frame_33
+      spriteId: 845796d74202be249bdea59cebce5ec8
+    - name: urn-enemy-old_Frame_33
       frameIndex: 33
       cellRect:
         x: 0
         y: 13
         width: 63
         height: 70
-      spriteId: 6f348a680e6916b4b80d29992f5086bd
-    - name: urn-enemy_Frame_34
+      spriteId: 677dfbe9c123c554698f0f07bae20a2e
+    - name: urn-enemy-old_Frame_34
       frameIndex: 34
       cellRect:
         x: 1
         y: 13
         width: 62
         height: 70
-      spriteId: 292050b7ebd55854ba5f05fceb8a32ed
-    - name: urn-enemy_Frame_35
+      spriteId: b2bebbf913346b64a9b2da76c82bec9d
+    - name: urn-enemy-old_Frame_35
       frameIndex: 35
       cellRect:
         x: 0
         y: 13
         width: 64
         height: 70
-      spriteId: bb39e592a9f90d94fa057ca8129ba333
-    - name: urn-enemy_Frame_36
+      spriteId: 09b25ef92aadfae408154b0a6c4147cb
+    - name: urn-enemy-old_Frame_36
       frameIndex: 36
       cellRect:
         x: 0
         y: 13
         width: 63
         height: 70
-      spriteId: 2b06d45c41ce6704da366dba70c7a0c1
-    - name: urn-enemy_Frame_37
+      spriteId: 180627d0e0314d74ab1d2d84072ad4eb
+    - name: urn-enemy-old_Frame_37
       frameIndex: 37
       cellRect:
         x: 1
         y: 13
         width: 62
         height: 70
-      spriteId: 6292a205ad6a0d44e80d7bfcce5bed94
-    - name: urn-enemy_Frame_0
+      spriteId: 6b6fa4ec8aef38f48972223ffd43bb37
+    - name: urn-enemy-old_Frame_0
       frameIndex: 0
       cellRect:
         x: 5
         y: 13
         width: 55
         height: 70
-      spriteId: 957fd07a2f9734a4d907ba632acf9cb5
-    - name: urn-enemy_Frame_1
+      spriteId: b53df5e46147a1b4a9d5dd9b0eb758ad
+    - name: urn-enemy-old_Frame_1
       frameIndex: 1
       cellRect:
         x: 5
         y: 18
         width: 55
         height: 59
-      spriteId: c86473d5d1629734fbe1fed84032af3e
+      spriteId: 4d63971581013964eb07e78429642858
     linkedCells: []
     parentIndex: -1
   platformSettings:

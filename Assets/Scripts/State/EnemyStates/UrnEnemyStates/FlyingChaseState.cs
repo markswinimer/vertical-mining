@@ -5,81 +5,79 @@ using UnityEngine;
 public class FlyingChaseState : State
 {
     public Transform target;
-    public NavigateState navigateState;
-    public IdleState idleState;
-    public InvestigateState InvestigateState;
-    public AttackState attackState;
-    public EnemyDetection EnemyDetection;
-    public float vision = 1;
-    public float attackRange = 1;
+    public Player player;
+    
+    public IdleFlyingState idleFlyingState;
+    public IdleWanderState idleWanderState;
+    public FlyingNavigateState flyingNavigateState;
+    public UrnChargingAttackState urnChargingAttackState;
 
-    // check for collectable objects
-    // if you find one, go to it
-    // idle for a second after collect
+    public float vision = 10f;
+    public float attackRange = 2f;
+    public float idleAfterCollectTime = 1f; // Idle time after collecting an object
+    public float rotationSpeed = 100f;
 
     public override void Enter()
     {
-        navigateState.destination = target.position;
-        Set(navigateState, true);
+        flyingNavigateState.destination = target.position;
+        Set(flyingNavigateState, true);
     }
 
     public override void Do()
     {
-        if (state == navigateState || state == attackState || (state == InvestigateState && !state.isComplete))
+        CheckForTarget();
+        if (state == urnChargingAttackState)
+        {
+            //
+        }
+        else
         {
             ChaseTarget();
-        }
-        else if (state != InvestigateState || (state == InvestigateState && state.isComplete))
-        {
-            Debug.Log("END CHASE STATE");
-            EndPursuit();
+            core.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
         }
     }
 
     void ChaseTarget()
     {
-        // check if target is dead by checking if gameobject is active
-        if (!target.gameObject.activeSelf)
+        if (state.isComplete == true && state == urnChargingAttackState)
+        {
+            isComplete = true;
+        }
+        // Check if the target is inactive
+        if (!target || !target.gameObject.activeSelf)
         {
             target = null;
-            Set(idleState, true);
-            body.velocity = new Vector2(0, body.velocity.y);
+            isComplete = true;
+            body.velocity = Vector2.zero;
         }
-        // could code a ram attack here
         else if (IsWithinReach(target.position))
         {
-            Set(attackState, state != attackState);
-            body.velocity = new Vector2(0, body.velocity.y);
+            // end navigation state
+            Set(urnChargingAttackState, true); // Continue chasing
         }
-        else if (!IsInVision(target.position) && !EnemyDetection.ShouldStayInChase())
+        else if (!IsInVision(target.position))
         {
-            // if the target is out of vision, stop and idle
-            // which will end this state
-            if (state != InvestigateState)
-            {
-                InvestigateState.target = target.position;
-            }
-            Set(InvestigateState);
-            Debug.Log("Enter inv from chase");
+            isComplete = true;
+            body.velocity = Vector2.zero;
         }
         else
         {
-            //otherwise, keep chasing
-            navigateState.destination = target.position;
-            Set(navigateState, true);
+            core.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+            flyingNavigateState.destination = target.position;
+            Set(flyingNavigateState, true); // Continue chasing
         }
+    }
+
+    void AttackTarget()
+    {
+        // Add any collection logic here
+        Debug.Log("Collecting target: " + target.name);
     }
 
     void EndPursuit()
     {
-        // can add some custom behavior here
-        // but this exits the chase state
+        // Exit the chase state
         isComplete = true;
-    }
-
-    public override void Exit()
-    {
-
     }
 
     public bool IsInVision(Vector2 targetPos)
@@ -94,12 +92,32 @@ public class FlyingChaseState : State
 
     public void CheckForTarget()
     {
-        if (EnemyDetection.ShouldChaseTarget())
+        Debug.Log("Checking for target");
+        
+        if (IsInVision(player.transform.position))
         {
-            target = EnemyDetection.Target.transform;
+            Debug.Log("Target found.");
+            target = player.transform;
+            Debug.Log(target);
+        }
+        else
+        {
+            Debug.Log("No target found.");
+            target = null;
+        }
+    }
+
+    // draw a visual representation of the vision range and also the attack range
+    private void OnDrawGizmos()
+    {
+        if (DebugManager.Instance.DisplayEnemyGizmos == false)
+        {
             return;
         }
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, vision);
 
-        target = null;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
