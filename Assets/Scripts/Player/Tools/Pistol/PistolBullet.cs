@@ -5,7 +5,7 @@ using UnityEngine;
 public class PistolBullet : MonoBehaviour
 {
     public float speed = 20f;
-    private float _damage = 40f;
+    private int _damage = 3;
     public Rigidbody2D rb;
     public GameObject impactEffect;
 
@@ -16,17 +16,18 @@ public class PistolBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        Enemy enemy = other.GetComponent<Enemy>();
+        IDamageable damageable = other.GetComponent<IDamageable>();
         Debug.Log("other = " + other);
+
         GameObject impactEffectVFX = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(impactEffectVFX, 2f);
 
-        if (enemy != null)
+        if (damageable != null)
         {
-            enemy.TakeDamage(_damage);
+            damageable.TakeDamage(_damage);
             Destroy(gameObject);
         }
-        else 
+        else
         {
             Destroy(gameObject);
         }

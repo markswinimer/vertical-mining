@@ -1954,12 +1954,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a14864c9c1db84f8d45a9ab363a9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3497497429406972622}
   Inventory: {fileID: 11400000, guid: 105f89532c15e5146aedd1119e3c9dcd, type: 2}
   AttackSpeed: 0.3
   AttackDamage: 100
   MaxAmmo: 100
   Ammo: 0
-  Health: 5
+  Health: 50
+  MaxHealth: 50
   DistanceJoint: {fileID: 0}
   cable: {fileID: 0}
   lightBasic: {fileID: 5399425710044283423}

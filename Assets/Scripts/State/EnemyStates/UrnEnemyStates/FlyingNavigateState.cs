@@ -5,39 +5,39 @@ using UnityEngine;
 public class FlyingNavigateState : State
 {
     public Vector2 destination;
-    public float speed = 1;
-    public float threshold = 0.5f;
-
-    public State animation;
+    public float speed = 1f;
+    public float threshold = 2f;
 
     public override void Enter()
     {
-        Set(animation, true);
         isComplete = false;
     }
 
     public override void Do()
     {
-    
+
+        // Check if the enemy is close to the destination
         if (Vector2.Distance(core.transform.position, destination) < threshold)
         {
             isComplete = true;
             body.velocity = Vector2.zero;
         }
-        else
-        {
-            FaceDestination();
-        }
     }
 
     public override void FixedDo()
     {
+        Debug.DrawLine(core.transform.position, destination, Color.red); // Visual guide
+        // Debug.Log(body.velocity);
+
         if (!isComplete)
         {
             Vector2 direction = (destination - (Vector2)core.transform.position).normalized;
-            Debug.DrawLine(core.transform.position, destination, Color.red); // Draw line to destination
 
-            body.velocity = direction * speed;
+            float xSpeedMultiplier = 1.5f; // Adjust as needed
+            float ySpeedMultiplier = 1f;
+
+            // In FixedDo:
+            body.velocity = new Vector2(direction.x* speed * xSpeedMultiplier, direction.y* speed * ySpeedMultiplier);
         }
         else
         {
@@ -45,12 +45,8 @@ public class FlyingNavigateState : State
         }
     }
 
-    void FaceDestination()
+    public void ExitState()
     {
-    
-        if (body.velocity.x != 0)
-        {
-            core.transform.localScale = new Vector3(Mathf.Sign(body.velocity.x), 1, 1);
-        }
+        isComplete = true;
     }
 }

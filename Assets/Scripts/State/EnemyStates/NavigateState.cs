@@ -17,7 +17,6 @@ public class NavigateState : State
 
     public override void Do()
     {
-        Debug.Log(Vector2.Distance(core.transform.position, destination) + " distance to go");
         if (Vector2.Distance(core.transform.position, destination) < threshold)
         {
             isComplete = true;

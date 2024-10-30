@@ -7,56 +7,34 @@ public class IdleWanderState : State
     public FlyingNavigateState flyingNavigateState;
     public IdleFlyingState idleFlyingState;
 
-    [SerializeField] private UrnEnemy _urnEnemy;
+    public float rotationSpeed = 100f;
 
-    private Vector3 _spawnPosition;
-    public float vision = 10;
+    public AnimationClip clip;
 
-    private Vector2 _destination;
-
-    private float minMoveDistance = 1f;  // 100 pixels
-    private float maxMoveDistance = 10f;  // 300 pixels
-
-    private float _timeToIdle = 10f;
-    private float _timeIdle;
-    
-    public LayerMask groundLayer; // LayerMask to check for walls
+    public float vision = 100f;
 
     public override void Enter()
     {
-        _timeIdle = 0f;
-        _spawnPosition = _urnEnemy._spawnPosition;
+        GoToNextDestination();
+        animator.Play(clip.name);
     }
 
-    void TryGetDestination()
-    {        
-        Vector2 randomSpot;
-        int maxAttempts = 10; // Limit attempts to avoid infinite loops
-        int attempts = 0;
+    void GoToNextDestination()
+    {
+        // Generate a random position nearby within 100-200 px
+        float randomX = Random.Range(1, 10) * (Random.value > 0.5f ? 1 : -1);
+        float randomY = Random.Range(1, 5) * (Random.value > 0.5f ? 1 : -1);
 
-        do
-        {
-            // Calculate a random spot nearby within the specified range
-            float randomX = Random.Range(-maxMoveDistance, maxMoveDistance);
-            float randomY = Random.Range(-maxMoveDistance, maxMoveDistance);
+        Vector2 randomSpot = new Vector2(core.transform.position.x + randomX, core.transform.position.y + randomY);
 
-            randomSpot = new Vector2(_spawnPosition.x + randomX, _spawnPosition.y + randomY);
-            Debug.Log(randomSpot + " the spot");
-            Debug.Log(core.transform.position + " current");
-            attempts++;
-
-        } while (Physics2D.OverlapPoint(randomSpot, groundLayer) && attempts < maxAttempts);
-
-        // If a valid point is found within the max attempts, set it as the destination
-        if (attempts < maxAttempts)
-        {
-            _destination = randomSpot;
-        }
+        // Set the new destination without wall checking
+        flyingNavigateState.destination = randomSpot;
+        Set(flyingNavigateState, true);
     }
 
     public override void Do()
     {
-        _timeIdle -= Time.deltaTime;
+        core.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
 
         if (TargetWithinVision() && TargetReachable())
         {
@@ -64,30 +42,37 @@ public class IdleWanderState : State
             {
                 if (flyingNavigateState.isComplete)
                 {
-                    Debug.Log("set urn Idle");
-                    Set(idleFlyingState);
+                    Set(idleFlyingState, true);
                 }
-                else if (_timeIdle <= 0)
+            }
+            else
+            {
+                if (machine.state.time > 4)
                 {
-                    _timeIdle = _timeToIdle;
-                    TryGetDestination();
+                    GoToNextDestination();
                 }
             }
         }
+        else if (machine.state == idleFlyingState && machine.state.time > 5)
+        {
+            Debug.Log("Idle for too long, going to next destination");
+            GoToNextDestination();
+        }
         else
         {
-            _timeIdle = _timeToIdle;
-            TryGetDestination();
+            Set(idleFlyingState);
         }
     }
 
     private bool TargetWithinVision()
     {
-        return Vector2.Distance(_urnEnemy.transform.position, _destination) < vision;
+        // Check if the destination is within vision range in both X and Y directions
+        return Vector2.Distance(core.transform.position, flyingNavigateState.destination) < vision;
     }
 
     private bool TargetReachable()
     {
-        return Mathf.Abs(_urnEnemy.transform.position.y - _destination.y) < 2;
+        // Check if the destination is vertically reachable within a reasonable range
+        return Mathf.Abs(core.transform.position.y - flyingNavigateState.destination.y) < vision;
     }
 }
